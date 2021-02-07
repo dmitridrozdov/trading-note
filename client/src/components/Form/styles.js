@@ -20,6 +20,9 @@ export default makeStyles((theme) => ({
   },
   buttonSubmit: {
     marginBottom: 10,
+    fontFamily: 'Montserrat',
   },
-
+  textStyle: {
+    fontFamily: 'Montserrat',
+  }
 }));
