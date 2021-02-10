@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import useStyles from './styles'
-import FileBase from 'react-file-base64'
+// import FileBase from 'react-file-base64'
 import { useDispatch } from 'react-redux'
 
 import { TextField, Button, Typography, Paper } from '@material-ui/core'
-// import { createPost } from '../../api'
 import { createPost  } from '../../actions/posts'
-
 
 
 const Form = () => {
@@ -20,6 +18,7 @@ const Form = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(createPost(postData))
+        // postData.agent = '' //DD: somehow I need to clear after dispatch
     }
     
     const clear = () => {
@@ -30,10 +29,21 @@ const Form = () => {
         <Paper className={classes.paper}>
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant='h6' className={classes.textStyle}>Add record</Typography>
-                <TextField name='agent' label='Agent' fullWidth value={postData.agent} onChange={(e) => setPostData({ ...postData, agent: e.target.value })}/>
-                <TextField id='filled-basic' variant='filled' name='names' label='Names' fullWidth value={postData.names} onChange={(e) => setPostData({ ...postData, names: e.target.value })}/>
+                <TextField 
+                    InputProps={{
+                        className: classes.textStyle
+                    }}
+                    name='agent' label='Agent' fullWidth 
+                    value={postData.agent} onChange={(e) => setPostData({ ...postData, agent: e.target.value })}/>
+                <TextField 
+                    InputProps={{
+                        className: classes.textStyle
+                    }}
+                    // id='filled-basic' variant='filled' 
+                    name='names' 
+                    label='Names' fullWidth value={postData.names} onChange={(e) => setPostData({ ...postData, names: e.target.value })}/>
                 <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth >Submit</Button>
-                <Button variant='contained' color='secondary' size='small' onClick={clear} fullWidth >Clear</Button>
+                <Button className={classes.textStyle} variant='contained' color='secondary' size='small' onClick={clear} fullWidth >Clear</Button>
             </form>
         </Paper>
     )
