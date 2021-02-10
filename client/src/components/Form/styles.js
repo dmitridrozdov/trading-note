@@ -1,13 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-    },
-  },
+
   paper: {
     padding: theme.spacing(2),
+    backgroundColor: 'rgba(0,0,0,0.05)'
+    // boxShadow: 'none',
   },
   form: {
     display: 'flex',
@@ -19,10 +17,16 @@ export default makeStyles((theme) => ({
     margin: '10px 0',
   },
   buttonSubmit: {
+    marginTop: 20,
     marginBottom: 10,
     fontFamily: 'Montserrat',
   },
   textStyle: {
+    fontFamily: 'Montserrat',
+  },
+  multilineColor: {
+    // color:'red',
+    // background: 'lightblue',
     fontFamily: 'Montserrat',
   }
 }));
