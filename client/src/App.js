@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
-import memories from './images/memories.png'
+import { Container, AppBar, /*Typography,*/ Grow, Grid } from '@material-ui/core'
+// import memories from './images/memories.png'
 
 import { getPosts } from './actions/posts'
-import Posts from './components/Posts/Posts'
 import Form from './components/Form/Form'
 import useStyles from './styles'
+import MainTable from './components/MainTable/MainTable'
 
 const App = () => {
     const classes = useStyles()
@@ -19,13 +19,13 @@ const App = () => {
     return (
         <Container maxWidth='lg'>
             <AppBar className = {classes.appBar} position='static' color='inherit'>
-                <Typography className = {classes.heading} variant='h2' align='center'>Trawin</Typography>
+                {/* <Typography className = {classes.heading} variant='h2' align='center'>Trawin</Typography> */}
             </AppBar>
             <Grow in>
                 <Container>
                     <Grid container justify='space-between' alignItems='stretch' spacing={4}>
-                        <Grid item xs={12} sm={7}>
-                            <Posts />
+                        <Grid item xs={12} sm={8}>
+                            <MainTable />
                         </Grid>
                         <Grid item xs={12} sm={4}>
                             <Form />
