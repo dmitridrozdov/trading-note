@@ -4,7 +4,7 @@ export default makeStyles((theme) => ({
 
   paper: {
     padding: theme.spacing(2),
-    backgroundColor: 'rgba(0,0,0,0.05)'
+    backgroundColor: 'rgba(0,0,0,0.01)'
     // boxShadow: 'none',
   },
   form: {
@@ -24,9 +24,10 @@ export default makeStyles((theme) => ({
   textStyle: {
     fontFamily: 'Montserrat',
   },
+  textMargin: {
+    marginTop: 5,
+  },
   multilineColor: {
-    // color:'red',
-    // background: 'lightblue',
     fontFamily: 'Montserrat',
   }
 }));
