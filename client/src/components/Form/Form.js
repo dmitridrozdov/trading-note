@@ -31,26 +31,27 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const clear = () => {
         setCurrentId(null)
-        setPostData({agent: '', name: ''})
+        setPostData({agent: '', names: ''})
     }
 
     return(
         <Paper className={classes.paper}>
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant='h6' className={classes.textStyle}>Add record</Typography>
-                <TextField 
+                <TextField
+                    className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
                     }}
                     name='agent' label='Agent' fullWidth 
                     value={postData.agent} onChange={(e) => setPostData({ ...postData, agent: e.target.value })}/>
                 <TextField 
+                    className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    // id='filled-basic' variant='filled' 
                     name='names' 
-                    label='Names' fullWidth value={postData.names} onChange={(e) => setPostData({ ...postData, names: e.target.value })}/>
+                    label='Names' fullWidth value={postData.names} onChange={(e) => setPostData({ ...postData, names: e.target.value.split(',') })}/>
                 <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth >Submit</Button>
                 <Button className={classes.textStyle} variant='contained' color='secondary' size='small' onClick={clear} fullWidth >Clear</Button>
             </form>
