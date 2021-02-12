@@ -2,14 +2,18 @@ import React from 'react'
 import useStyles from './styles'
 import { Grid, CircularProgress } from '@material-ui/core'
 import { useSelector } from 'react-redux'
-import { Button, Typography, Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core'
+import { Button, Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
+import DeleteIcon from '@material-ui/icons/Delete'
+import { useDispatch } from 'react-redux'
+import { deletePost } from '../../actions/posts'
 
 import { withStyles } from '@material-ui/core/styles';
 
 const MainTable = ({ setCurrentId }) => {
     const posts  = useSelector((state) => state.posts)
     const classes = useStyles()
+    const dispatch = useDispatch()
 
     console.log(posts)
 
@@ -45,7 +49,7 @@ const MainTable = ({ setCurrentId }) => {
                         <TableRow>
                             <StyledTableCell>Agent</StyledTableCell>
                             <StyledTableCell>Names</StyledTableCell>
-                            <StyledTableCell>Edit</StyledTableCell>
+                            <StyledTableCell>Edit/Delete</StyledTableCell>
                         </TableRow>
                         </TableHead>
                         <TableBody>
@@ -54,10 +58,13 @@ const MainTable = ({ setCurrentId }) => {
                               <StyledTableCell component="th" scope="row">
                                   {post.agent}
                               </StyledTableCell>
-                              <StyledTableCell>{post.names}</StyledTableCell>
+                              <StyledTableCell>{post.names.map((name) => name + ', ')}</StyledTableCell>
                               <StyledTableCell>
                                   <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(post._id)}}>
                                     <MoreHorizIcon fontSize='default' />
+                                  </Button>
+                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deletePost(post._id))}>
+                                    <DeleteIcon fontSize='default' />
                                   </Button>
                               </StyledTableCell>
                             </StyledTableRow>
