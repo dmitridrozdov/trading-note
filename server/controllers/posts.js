@@ -1,5 +1,7 @@
 import mongoose from 'mongoose'
 import PostMessage from '../models/postMessage.js'
+import { puts } from '../scripts/shellScript.js'
+
 
 export const getPosts = async (req, res) => {
     try {
@@ -28,6 +30,9 @@ export const updatePost = async (req, res) => {
     const updatedPost = { agent, names, _id: id };
     await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
     res.json(updatedPost);
+
+    puts()
+
 }
 
 export const deletePost = async (req, res) => {
