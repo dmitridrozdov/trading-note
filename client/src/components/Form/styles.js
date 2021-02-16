@@ -1,10 +1,11 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { TextField } from '@material-ui/core'
 
 export default makeStyles((theme) => ({
 
   paper: {
     padding: theme.spacing(2),
-    backgroundColor: 'rgba(0,0,0,0.01)'
+    backgroundColor: 'rgba(0,0,0,0.2)'
     // boxShadow: 'none',
   },
   form: {
@@ -22,12 +23,45 @@ export default makeStyles((theme) => ({
     fontFamily: 'Montserrat',
   },
   textStyle: {
+    color: 'white', 
     fontFamily: 'Montserrat',
   },
   textMargin: {
-    marginTop: 5,
+    marginTop: 10,
   },
-  multilineColor: {
-    fontFamily: 'Montserrat',
-  }
 }));
+
+
+export const CssTextField = withStyles({
+  root: {
+    '& label': {
+      color: 'white',
+    },
+    '&.Mui-focused': {
+      color: 'white'
+    },
+    '& label.Mui-focused': {
+      color: 'white',
+    },
+    // '& .MuiInput-underline:after': {
+    //   borderBottomColor: 'white',
+    // },
+    // '& .MuiInput-underline:before': {
+    //   borderBottomColor: 'white',
+    // },
+    // '& .MuiInput-underline:hover::before': {
+    //   borderBottomColor: 'white',
+    // },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'white',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'white',
+      },
+    },
+  },
+})(TextField);
