@@ -15,11 +15,9 @@ const MainTable = ({ setCurrentId }) => {
     const classes = useStyles()
     const dispatch = useDispatch()
 
-    console.log(posts)
-
     const StyledTableCell = withStyles((theme) => ({
         head: {
-          backgroundColor: 'rgb(117, 81, 27)',
+          backgroundColor: 'rgb(72, 106, 176)',
           color: 'white',
           fontFamily: 'Montserrat',
         },
@@ -32,10 +30,10 @@ const MainTable = ({ setCurrentId }) => {
       const StyledTableRow = withStyles((theme) => ({
         root: {
           '&:nth-of-type(odd)': {
-            backgroundColor: 'rgb(255, 195, 105)',
+            backgroundColor: 'rgb(255, 255, 255)',
           },
           '&:nth-of-type(even)': {
-            backgroundColor: 'rgb(255, 221, 171)',
+            backgroundColor: 'rgb(166, 212, 214)',
           },
         },
       }))(TableRow);
