@@ -1,4 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { TextField } from '@material-ui/core'
 
 export default makeStyles(() => ({
   appBar: {
@@ -15,4 +16,36 @@ export default makeStyles(() => ({
   image: {
     marginLeft: '15px',
   },
+  textStyle: {
+    color: 'white', 
+    fontFamily: 'Montserrat',
+  },
+  textMargin: {
+    marginTop: 10,
+  },
 }));
+
+export const CssTextField = withStyles({
+  root: {
+    '& label': {
+      color: 'white',
+    },
+    '&.Mui-focused': {
+      color: 'white'
+    },
+    '& label.Mui-focused': {
+      color: 'white',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'white',
+      },
+      '&:hover fieldset': {
+        borderColor: 'white',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'white',
+      },
+    },
+  },
+})(TextField);
