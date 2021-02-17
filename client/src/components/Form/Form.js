@@ -57,6 +57,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     variant="outlined"
                     name='names' label='Names' fullWidth value={postData.names} 
                     onChange={(e) => setPostData({ ...postData, names: e.target.value.split(',') })}/>
+                    
                 <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth >Submit</Button>
                 <Button className={classes.textStyle} variant='contained' color='secondary' size='small' onClick={clear} fullWidth >Clear</Button>
             </form>
