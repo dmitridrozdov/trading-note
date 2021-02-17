@@ -5,7 +5,8 @@ import { puts } from '../scripts/shellScript.js'
 
 export const getPosts = async (req, res) => {
     try {
-        const postMessages = await PostMessage.find()
+        let search = req.query.search
+        const postMessages = await PostMessage.find({agent: {$regex: search}})
         res.status(200).json(postMessages)
     } catch(error) {
         res.status(404).json({ message: error.message})
@@ -31,7 +32,7 @@ export const updatePost = async (req, res) => {
     await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
     res.json(updatedPost);
 
-    puts()
+    puts() //SHELL SCRIPT EXECUTION
 
 }
 
