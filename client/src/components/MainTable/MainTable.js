@@ -6,7 +6,7 @@ import { Button, Paper, Table, TableContainer, TableHead, TableRow, TableCell, T
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { useDispatch } from 'react-redux'
-import { deletePost } from '../../actions/posts'
+import { deleteAgent } from '../../actions/posts'
 
 import { withStyles } from '@material-ui/core/styles';
 
@@ -61,7 +61,7 @@ const MainTable = ({ setCurrentId }) => {
                                   <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(post._id)}}>
                                     <MoreHorizIcon fontSize='default' />
                                   </Button>
-                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deletePost(post._id))}>
+                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deleteAgent(post._id))}>
                                     <DeleteIcon fontSize='default' />
                                   </Button>
                               </StyledTableCell>
