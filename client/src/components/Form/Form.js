@@ -4,38 +4,36 @@ import useStyles, { CssTextField } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Button, Typography, Paper } from '@material-ui/core'
-import { createPost, updatePost } from '../../actions/posts'
+import { createAgent, updateAgent } from '../../actions/posts'
 
 
 const Form = ({ currentId, setCurrentId }) => {
     const classes = useStyles()
-    const [postData, setPostData] = useState({
-        agent: '', names: ''
+    const [agentData, setAgentData] = useState({
+        agent: '', address: '', phone: ''
     })
     const post  = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null)
     const dispatch = useDispatch()
     
     useEffect(() => {
-        if(post) setPostData(post)
+        if(post) setAgentData(post)
     }, [post])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if(currentId) {
-            dispatch(updatePost(currentId, postData))
+            dispatch(updateAgent(currentId, agentData))
         } else {
-            dispatch(createPost(postData))
+            dispatch(createAgent(agentData))
         }
         clear()
     }
 
     const clear = () => {
         setCurrentId(null)
-        setPostData({agent: '', names: ''})
+        setAgentData({agent: '', address: '', phone: ''})
     }
-
-
-
+    
     return(
         <Paper className={classes.paper}>
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
@@ -47,7 +45,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     }}
                     variant="outlined"
                     name='agent' label='Agent' fullWidth
-                    value={postData.agent} onChange={(e) => setPostData({ ...postData, agent: e.target.value })}/>
+                    value={agentData.agent} onChange={(e) => setAgentData({ ...agentData, agent: e.target.value })}/>
                 
                 <CssTextField 
                     className={classes.textMargin}
@@ -55,8 +53,17 @@ const Form = ({ currentId, setCurrentId }) => {
                         className: classes.textStyle
                     }}
                     variant="outlined"
-                    name='names' label='Names' fullWidth value={postData.names} 
-                    onChange={(e) => setPostData({ ...postData, names: e.target.value.split(',') })}/>
+                    name='address' label='Address' fullWidth value={agentData.address} 
+                    onChange={(e) => setAgentData({ ...agentData, address: e.target.value })}/>
+
+                <CssTextField 
+                    className={classes.textMargin}
+                    InputProps={{
+                        className: classes.textStyle
+                    }}
+                    variant="outlined"
+                    name='phone' label='Phone' fullWidth value={agentData.phone} 
+                    onChange={(e) => setAgentData({ ...agentData, phone: e.target.value })}/>
                     
                 <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth >Submit</Button>
                 <Button className={classes.textStyle} variant='contained' color='secondary' size='small' onClick={clear} fullWidth >Clear</Button>
