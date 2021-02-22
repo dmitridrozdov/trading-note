@@ -6,12 +6,12 @@ import { Button, Paper, Table, TableContainer, TableHead, TableRow, TableCell, T
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { useDispatch } from 'react-redux'
-import { deleteAgent } from '../../actions/posts'
+import { deleteAgent } from '../../actions/agents'
 
 import { withStyles } from '@material-ui/core/styles';
 
 const MainTable = ({ setCurrentId }) => {
-    const posts  = useSelector((state) => state.posts)
+    const agents  = useSelector((state) => state.agents)
     const classes = useStyles()
     const dispatch = useDispatch()
 
@@ -39,29 +39,31 @@ const MainTable = ({ setCurrentId }) => {
       }))(TableRow);
 
     return(
-        !posts.length ? <CircularProgress /> : (
+        !agents.length ? <CircularProgress /> : (
             <Grid container alignItems='stretch' spacing={3}>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">
                         <TableHead>
                         <TableRow>
                             <StyledTableCell>Agent</StyledTableCell>
-                            <StyledTableCell>Names</StyledTableCell>
+                            <StyledTableCell>Address</StyledTableCell>
+                            <StyledTableCell>Phone</StyledTableCell>
                             <StyledTableCell>Edit/Delete</StyledTableCell>
                         </TableRow>
                         </TableHead>
                         <TableBody>
-                        {posts.map((post) => (
-                            <StyledTableRow key={post.agent}>
+                        {agents.map((agent) => (
+                            <StyledTableRow key={agent.agent}>
                               <StyledTableCell component="th" scope="row">
-                                  {post.agent}
+                                  {agent.agent}
                               </StyledTableCell>
-                              <StyledTableCell>{post.names.map((name) => name + ', ')}</StyledTableCell>
+                              <StyledTableCell>{agent.address}</StyledTableCell>
+                              <StyledTableCell>{agent.phone}</StyledTableCell>
                               <StyledTableCell>
-                                  <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(post._id)}}>
+                                  <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(agent._id)}}>
                                     <MoreHorizIcon fontSize='default' />
                                   </Button>
-                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deleteAgent(post._id))}>
+                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deleteAgent(agent._id))}>
                                     <DeleteIcon fontSize='default' />
                                   </Button>
                               </StyledTableCell>
