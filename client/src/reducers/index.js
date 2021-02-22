@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import posts from './posts'
+import agents from './agents'
 
-export default combineReducers({ posts })
+export default combineReducers({ agents })
 
 // import { combineReducers } from 'redux';
 
