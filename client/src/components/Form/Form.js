@@ -4,7 +4,7 @@ import useStyles, { CssTextField } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Button, Typography, Paper } from '@material-ui/core'
-import { createAgent, updateAgent } from '../../actions/posts'
+import { createAgent, updateAgent } from '../../actions/agents'
 
 
 const Form = ({ currentId, setCurrentId }) => {
