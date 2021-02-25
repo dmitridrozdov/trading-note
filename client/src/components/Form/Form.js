@@ -12,12 +12,12 @@ const Form = ({ currentId, setCurrentId }) => {
     const [agentData, setAgentData] = useState({
         agent: '', address: '', phone: ''
     })
-    const post  = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null)
+    const agent  = useSelector((state) => currentId ? state.agents.find((p) => p._id === currentId) : null)
     const dispatch = useDispatch()
     
     useEffect(() => {
-        if(post) setAgentData(post)
-    }, [post])
+        if(agent) setAgentData(agent)
+    }, [agent])
 
     const handleSubmit = (e) => {
         e.preventDefault()
