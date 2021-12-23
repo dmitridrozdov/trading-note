@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const agentSchema = mongoose.Schema({
+const tradingNoteSchema = mongoose.Schema({
     agent: String,
     address: String,
     phone: String,
@@ -10,6 +10,6 @@ const agentSchema = mongoose.Schema({
     }
 })
 
-const Agent = mongoose.model('Agent', agentSchema)
+const TradingNote = mongoose.model('TradingNote', tradingNoteSchema)
 
-export default Agent
+export default TradingNote
