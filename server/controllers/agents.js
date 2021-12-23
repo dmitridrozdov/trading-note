@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
 import Agent from '../models/models.js'
-import { puts } from '../scripts/shellScript.js'
 
 
 export const getAgents = async (req, res) => {
@@ -31,9 +30,6 @@ export const updateAgent = async (req, res) => {
     const updatedAgent = { agent, address, phone, _id: id };
     await Agent.findByIdAndUpdate(id, updatedAgent, { new: true });
     res.json(updatedAgent);
-
-    puts() //SHELL SCRIPT EXECUTION
-
 }
 
 export const deleteAgent = async (req, res) => {
