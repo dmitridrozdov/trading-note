@@ -4,7 +4,7 @@ import useStyles, { CssTextField } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Button, Typography, Paper } from '@material-ui/core'
-import { createAgent, updateAgent } from '../../actions/agents'
+import { createTradingNote, updateTradingNote } from '../../actions/agents'
 
 
 const Form = ({ currentId, setCurrentId }) => {
@@ -22,9 +22,9 @@ const Form = ({ currentId, setCurrentId }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(currentId) {
-            dispatch(updateAgent(currentId, agentData))
+            dispatch(updateTradingNote(currentId, agentData))
         } else {
-            dispatch(createAgent(agentData))
+            dispatch(createTradingNote(agentData))
         }
         clear()
     }
