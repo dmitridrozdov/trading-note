@@ -2,7 +2,7 @@ import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes'
 import * as api from '../api'
 
 // Action Creator
-export const getAgents = (searchStr) => async(dispatch) => {
+export const getTradingNotes = (searchStr) => async(dispatch) => {
     try {
         const { data } = await api.fetchTradingNotes(searchStr)
         console.log(data)
@@ -12,18 +12,18 @@ export const getAgents = (searchStr) => async(dispatch) => {
     }   
 }
 
-export const createAgent = (post) => async(dispatch) => {
+export const createTradingNote = (post) => async(dispatch) => {
     try {
-        const { data } = await api.createAgent(post)
+        const { data } = await api.createTradingNote(post)
         dispatch({ type: CREATE, payload: data })
     } catch(error) {
         console.log(error.message)
     }   
 }
 
-export const updateAgent = (id, post) => async(dispatch) => {
+export const updateTradingNote = (id, post) => async(dispatch) => {
     try {
-        const { data } = await api.updateAgent(id, post)
+        const { data } = await api.updateTradingNote(id, post)
         console.log(post)
         dispatch({ type: UPDATE, payload: data })
     } catch(error) {
@@ -31,9 +31,9 @@ export const updateAgent = (id, post) => async(dispatch) => {
     }   
 }
 
-export const deleteAgent = (id) => async(dispatch) => {
+export const deleteTradingNote = (id) => async(dispatch) => {
     try {
-        await api.deleteAgent(id)
+        await api.deleteTradingNote(id)
         dispatch({ type: DELETE, payload: id })
     } catch(error) {
         console.log(error)
