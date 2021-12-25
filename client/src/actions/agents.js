@@ -4,7 +4,7 @@ import * as api from '../api'
 // Action Creator
 export const getAgents = (searchStr) => async(dispatch) => {
     try {
-        const { data } = await api.fetchAgents(searchStr)
+        const { data } = await api.fetchTradingNotes(searchStr)
         console.log(data)
         dispatch({ type: FETCH_ALL, payload: data })
     } catch(error) {
