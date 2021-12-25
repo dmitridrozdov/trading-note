@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Container, AppBar, /*Typography,*/ Grow, Grid } from '@material-ui/core'
 // import memories from './images/memories.png'
 
-import { getAgents } from './actions/agents'
+import { getTradingNotes } from './actions/agents'
 import Form from './components/Form/Form'
 import useStyles, { CssTextField }  from './styles'
 import MainTable from './components/MainTable/MainTable'
@@ -15,7 +15,7 @@ const App = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getAgents(currentSearch))
+        dispatch(getTradingNotes(currentSearch))
     }, [dispatch, currentSearch])
 
     return (
