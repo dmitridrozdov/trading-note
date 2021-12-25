@@ -6,7 +6,7 @@ import { Button, Paper, Table, TableContainer, TableHead, TableRow, TableCell, T
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { useDispatch } from 'react-redux'
-import { deleteAgent } from '../../actions/agents'
+import { deleteTradingNote } from '../../actions/agents'
 
 import { withStyles } from '@material-ui/core/styles';
 
@@ -63,7 +63,7 @@ const MainTable = ({ setCurrentId }) => {
                                   <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(agent._id)}}>
                                     <MoreHorizIcon fontSize='default' />
                                   </Button>
-                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deleteAgent(agent._id))}>
+                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deleteTradingNote(agent._id))}>
                                     <DeleteIcon fontSize='default' />
                                   </Button>
                               </StyledTableCell>
