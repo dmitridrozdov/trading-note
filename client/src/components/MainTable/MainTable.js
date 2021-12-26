@@ -6,7 +6,7 @@ import { Button, Paper, Table, TableContainer, TableHead, TableRow, TableCell, T
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { useDispatch } from 'react-redux'
-import { deleteTradingNote } from '../../actions/agents'
+import { deleteTradingNote } from '../../actions/tradingNotes'
 
 import { withStyles } from '@material-ui/core/styles';
 
