@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const tradingNoteSchema = mongoose.Schema({
-    agent: String,
+    coin: String,
     address: String,
     phone: String,
     createAt: {
