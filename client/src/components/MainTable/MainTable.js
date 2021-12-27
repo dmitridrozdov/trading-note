@@ -11,7 +11,7 @@ import { deleteTradingNote } from '../../actions/tradingNotes'
 import { withStyles } from '@material-ui/core/styles';
 
 const MainTable = ({ setCurrentId }) => {
-    const agents  = useSelector((state) => state.agents)
+    const coins  = useSelector((state) => state.coins)
     const classes = useStyles()
     const dispatch = useDispatch()
 
@@ -39,31 +39,31 @@ const MainTable = ({ setCurrentId }) => {
       }))(TableRow);
 
     return(
-        !agents.length ? <CircularProgress /> : (
+        !coins.length ? <CircularProgress /> : (
             <Grid container alignItems='stretch' spacing={3}>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">
                         <TableHead>
                         <TableRow>
-                            <StyledTableCell>Agent</StyledTableCell>
+                            <StyledTableCell>coin</StyledTableCell>
                             <StyledTableCell>Address</StyledTableCell>
                             <StyledTableCell>Phone</StyledTableCell>
                             <StyledTableCell>Edit/Delete</StyledTableCell>
                         </TableRow>
                         </TableHead>
                         <TableBody>
-                        {agents.map((agent) => (
-                            <StyledTableRow key={agent.agent}>
+                        {coins.map((coin) => (
+                            <StyledTableRow key={coin.coin}>
                               <StyledTableCell component="th" scope="row">
-                                  {agent.agent}
+                                  {coin.coin}
                               </StyledTableCell>
-                              <StyledTableCell>{agent.address}</StyledTableCell>
-                              <StyledTableCell>{agent.phone}</StyledTableCell>
+                              <StyledTableCell>{coin.address}</StyledTableCell>
+                              <StyledTableCell>{coin.phone}</StyledTableCell>
                               <StyledTableCell>
-                                  <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(agent._id)}}>
+                                  <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(coin._id)}}>
                                     <MoreHorizIcon fontSize='default' />
                                   </Button>
-                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deleteTradingNote(agent._id))}>
+                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deleteTradingNote(coin._id))}>
                                     <DeleteIcon fontSize='default' />
                                   </Button>
                               </StyledTableCell>
