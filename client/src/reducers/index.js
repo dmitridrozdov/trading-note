@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import agents from './agents'
+import coins from './tradingNotes'
 
-export default combineReducers({ agents })
+export default combineReducers({ coins })
 
 // import { combineReducers } from 'redux';
 
