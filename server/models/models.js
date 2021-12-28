@@ -2,8 +2,11 @@ import mongoose from 'mongoose'
 
 const tradingNoteSchema = mongoose.Schema({
     coin: String,
-    address: String,
-    phone: String,
+    deposit: String,
+    entry: String,
+    stoploss: String,
+    tp1: String,
+    tp2: String,
     createAt: {
         type: Date,
         default: new Date()
