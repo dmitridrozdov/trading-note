@@ -46,8 +46,11 @@ const MainTable = ({ setCurrentId }) => {
                         <TableHead>
                         <TableRow>
                             <StyledTableCell>coin</StyledTableCell>
-                            <StyledTableCell>Address</StyledTableCell>
-                            <StyledTableCell>Phone</StyledTableCell>
+                            <StyledTableCell>deposit</StyledTableCell>
+                            <StyledTableCell>Entry Point</StyledTableCell>
+                            <StyledTableCell>Stop Loss</StyledTableCell>
+                            <StyledTableCell>Take Profit 1</StyledTableCell>
+                            <StyledTableCell>Take Profit 2</StyledTableCell>
                             <StyledTableCell>Edit/Delete</StyledTableCell>
                         </TableRow>
                         </TableHead>
@@ -57,8 +60,11 @@ const MainTable = ({ setCurrentId }) => {
                               <StyledTableCell component="th" scope="row">
                                   {coin.coin}
                               </StyledTableCell>
-                              <StyledTableCell>{coin.address}</StyledTableCell>
-                              <StyledTableCell>{coin.phone}</StyledTableCell>
+                              <StyledTableCell>{coin.deposit}</StyledTableCell>
+                              <StyledTableCell>{coin.entry}</StyledTableCell>
+                              <StyledTableCell>{coin.stoploss}</StyledTableCell>
+                              <StyledTableCell>{coin.tp1}</StyledTableCell>
+                              <StyledTableCell>{coin.tp2}</StyledTableCell>
                               <StyledTableCell>
                                   <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(coin._id)}}>
                                     <MoreHorizIcon fontSize='default' />
