@@ -30,7 +30,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const clear = () => {
         setCurrentId(null)
-        setcoinData({coin: '', address: '', phone: ''})
+        setcoinData({coin: '', deposit: '', entry: '', stoploss: '', tp1: '', tp2: ''})
     }
     
     return(
@@ -52,8 +52,8 @@ const Form = ({ currentId, setCurrentId }) => {
                         className: classes.textStyle
                     }}
                     variant="outlined"
-                    name='address' label='Address' fullWidth value={coinData.address} 
-                    onChange={(e) => setcoinData({ ...coinData, address: e.target.value })}/>
+                    name='deposit' label='Deposit' fullWidth value={coinData.deposit} 
+                    onChange={(e) => setcoinData({ ...coinData, deposit: e.target.value })}/>
 
                 <CssTextField 
                     className={classes.textMargin}
@@ -61,8 +61,35 @@ const Form = ({ currentId, setCurrentId }) => {
                         className: classes.textStyle
                     }}
                     variant="outlined"
-                    name='phone' label='Phone' fullWidth value={coinData.phone} 
-                    onChange={(e) => setcoinData({ ...coinData, phone: e.target.value })}/>
+                    name='entry' label='Entry' fullWidth value={coinData.entry} 
+                    onChange={(e) => setcoinData({ ...coinData, entry: e.target.value })}/>
+
+                <CssTextField 
+                    className={classes.textMargin}
+                    InputProps={{
+                        className: classes.textStyle
+                    }}
+                    variant="outlined"
+                    name='stoploss' label='Stop Loss' fullWidth value={coinData.stoploss} 
+                    onChange={(e) => setcoinData({ ...coinData, stoploss: e.target.value })}/>
+                
+                <CssTextField 
+                    className={classes.textMargin}
+                    InputProps={{
+                        className: classes.textStyle
+                    }}
+                    variant="outlined"
+                    name='tp1' label='Take Profit 1' fullWidth value={coinData.tp1} 
+                    onChange={(e) => setcoinData({ ...coinData, tp1: e.target.value })}/>
+                
+                <CssTextField 
+                    className={classes.textMargin}
+                    InputProps={{
+                        className: classes.textStyle
+                    }}
+                    variant="outlined"
+                    name='tp2' label='Take Profit 2' fullWidth value={coinData.tp2} 
+                    onChange={(e) => setcoinData({ ...coinData, tp2: e.target.value })}/>
                     
                 <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth >Submit</Button>
                 <Button className={classes.textStyle} variant='contained' color='secondary' size='small' onClick={clear} fullWidth >Clear</Button>
