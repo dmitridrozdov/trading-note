@@ -46,6 +46,7 @@ const MainTable = ({ setCurrentId }) => {
                         <TableHead>
                         <TableRow>
                             <StyledTableCell>coin</StyledTableCell>
+                            <StyledTableCell>type</StyledTableCell>
                             <StyledTableCell>deposit</StyledTableCell>
                             <StyledTableCell>Entry Point</StyledTableCell>
                             <StyledTableCell>Stop Loss</StyledTableCell>
@@ -60,6 +61,7 @@ const MainTable = ({ setCurrentId }) => {
                               <StyledTableCell component="th" scope="row">
                                   {coin.coin}
                               </StyledTableCell>
+                              <StyledTableCell>{coin.type}</StyledTableCell>
                               <StyledTableCell>{coin.deposit}</StyledTableCell>
                               <StyledTableCell>{coin.entry}</StyledTableCell>
                               <StyledTableCell>{coin.stoploss}</StyledTableCell>
