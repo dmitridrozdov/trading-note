@@ -9,7 +9,7 @@ import { createTradingNote, updateTradingNote } from '../../actions/tradingNotes
 const Form = ({ currentId, setCurrentId }) => {
     const classes = useStyles()
     const [coinData, setcoinData] = useState({
-        coin: '', address: '', phone: ''
+        coin: '', type: '', deposit: '', entry: '', stoploss: '', tp1: '', tp2: ''
     })
     const coin  = useSelector((state) => currentId ? state.coins.find((p) => p._id === currentId) : null)
     const dispatch = useDispatch()
@@ -30,7 +30,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const clear = () => {
         setCurrentId(null)
-        setcoinData({coin: '', deposit: '', entry: '', stoploss: '', tp1: '', tp2: ''})
+        setcoinData({coin: '', type: '', deposit: '', entry: '', stoploss: '', tp1: '', tp2: ''})
     }
     
     return(
@@ -46,6 +46,15 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='coin' label='coin' fullWidth
                     value={coinData.coin} onChange={(e) => setcoinData({ ...coinData, coin: e.target.value })}/>
                 
+                <CssTextField 
+                    className={classes.textMargin}
+                    InputProps={{
+                        className: classes.textStyle
+                    }}
+                    variant="outlined"
+                    name='type' label='Type' fullWidth
+                    value={coinData.type} onChange={(e) => setcoinData({ ...coinData, type: e.target.value })}/>
+
                 <CssTextField 
                     className={classes.textMargin}
                     InputProps={{
