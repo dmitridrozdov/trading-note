@@ -11,7 +11,7 @@ import { deleteTradingNote } from '../../actions/tradingNotes'
 import { withStyles } from '@material-ui/core/styles';
 
 const MainTable = ({ setCurrentId }) => {
-    const coins  = useSelector((state) => state.coins)
+    const notes  = useSelector((state) => state.notes)
     const classes = useStyles()
     const dispatch = useDispatch()
 
@@ -39,7 +39,7 @@ const MainTable = ({ setCurrentId }) => {
       }))(TableRow);
 
     return(
-        !coins.length ? <CircularProgress /> : (
+        !notes.length ? <CircularProgress /> : (
             <Grid container alignItems='stretch' spacing={3}>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">
@@ -56,22 +56,22 @@ const MainTable = ({ setCurrentId }) => {
                         </TableRow>
                         </TableHead>
                         <TableBody>
-                        {coins.map((coin) => (
-                            <StyledTableRow key={coin.coin}>
+                        {notes.map((note) => (
+                            <StyledTableRow key={note.coin}>
                               <StyledTableCell component="th" scope="row">
-                                  {coin.coin}
+                                  {note.coin}
                               </StyledTableCell>
-                              <StyledTableCell>{coin.type}</StyledTableCell>
-                              <StyledTableCell>{coin.deposit}</StyledTableCell>
-                              <StyledTableCell>{coin.entry}</StyledTableCell>
-                              <StyledTableCell>{coin.stoploss}</StyledTableCell>
-                              <StyledTableCell>{coin.tp1}</StyledTableCell>
-                              <StyledTableCell>{coin.tp2}</StyledTableCell>
+                              <StyledTableCell>{note.type}</StyledTableCell>
+                              <StyledTableCell>{note.deposit}</StyledTableCell>
+                              <StyledTableCell>{note.entry}</StyledTableCell>
+                              <StyledTableCell>{note.stoploss}</StyledTableCell>
+                              <StyledTableCell>{note.tp1}</StyledTableCell>
+                              <StyledTableCell>{note.tp2}</StyledTableCell>
                               <StyledTableCell>
-                                  <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(coin._id)}}>
+                                  <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(note._id)}}>
                                     <MoreHorizIcon fontSize='default' />
                                   </Button>
-                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deleteTradingNote(coin._id))}>
+                                  <Button style={{color: 'white'}} size='small' onClick={() => dispatch(deleteTradingNote(note._id))}>
                                     <DeleteIcon fontSize='default' />
                                   </Button>
                               </StyledTableCell>
