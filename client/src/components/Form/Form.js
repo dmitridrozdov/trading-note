@@ -110,8 +110,8 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='closeposition' label='Close Position' fullWidth value={noteData.closeposition} 
                     onChange={(e) => setnoteData({ ...noteData, closeposition: e.target.value })}/>
                     
-                <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth >Create Note</Button>
-                <Button className={classes.textStyle} variant='contained' color='secondary' size='small' onClick={clear} fullWidth >Clear</Button>
+                <Button className={classes.buttonSubmit} size='small' type='submit' fullWidth >Create Note</Button>
+                <Button className={classes.buttonClear} size='small' onClick={clear} fullWidth >Clear</Button>
             </form>
         </Paper>
     )
