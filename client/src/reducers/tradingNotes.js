@@ -1,16 +1,16 @@
 import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes'
 
-export default (coins = [], action) => {
+export default (notes = [], action) => {
     switch (action.type) {
         case DELETE:
-            return coins.filter((coin) => coin._id !== action.payload)
+            return notes.filter((note) => note._id !== action.payload)
         case UPDATE:
-            return coins.map((coin) => coin._id === action.payload._id ? action.payload : coin)
+            return notes.map((note) => note._id === action.payload._id ? action.payload : note)
         case FETCH_ALL:
             return action.payload
         case CREATE:
-            return [...coins, action.payload]
+            return [...notes, action.payload]
         default:
-            return coins
+            return notes
     }
 }
