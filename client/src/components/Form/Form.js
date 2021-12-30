@@ -8,29 +8,30 @@ import { createTradingNote, updateTradingNote } from '../../actions/tradingNotes
 
 const Form = ({ currentId, setCurrentId }) => {
     const classes = useStyles()
-    const [coinData, setcoinData] = useState({
-        coin: '', type: '', deposit: '', entry: '', stoploss: '', tp1: '', tp2: ''
+    const [noteData, setnoteData] = useState({
+        coin: '', type: '', deposit: '', entry: '', stoploss: '', tp1: '', tp2: '', closeposition: ''
     })
-    const coin  = useSelector((state) => currentId ? state.coins.find((p) => p._id === currentId) : null)
+    const coin  = useSelector((state) => currentId ? state.notes.find((p) => p._id === currentId) : null)
     const dispatch = useDispatch()
     
     useEffect(() => {
-        if(coin) setcoinData(coin)
+        if(coin) setnoteData(coin)
     }, [coin])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if(currentId) {
-            dispatch(updateTradingNote(currentId, coinData))
+            dispatch(updateTradingNote(currentId, noteData))
         } else {
-            dispatch(createTradingNote(coinData))
+            dispatch(createTradingNote(noteData))
         }
         clear()
     }
 
     const clear = () => {
         setCurrentId(null)
-        setcoinData({coin: '', type: '', deposit: '', entry: '', stoploss: '', tp1: '', tp2: ''})
+        setnoteData({coin: '', type: '', deposit: '', entry: '', stoploss: '', 
+                    tp1: '', tp2: '', closeposition: ''})
     }
     
     return(
@@ -44,7 +45,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     }}
                     variant="outlined"
                     name='coin' label='coin' fullWidth
-                    value={coinData.coin} onChange={(e) => setcoinData({ ...coinData, coin: e.target.value })}/>
+                    value={noteData.coin} onChange={(e) => setnoteData({ ...noteData, coin: e.target.value })}/>
                 
                 <CssTextField 
                     className={classes.textMargin}
@@ -53,7 +54,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     }}
                     variant="outlined"
                     name='type' label='Type' fullWidth
-                    value={coinData.type} onChange={(e) => setcoinData({ ...coinData, type: e.target.value })}/>
+                    value={noteData.type} onChange={(e) => setnoteData({ ...noteData, type: e.target.value })}/>
 
                 <CssTextField 
                     className={classes.textMargin}
@@ -61,8 +62,8 @@ const Form = ({ currentId, setCurrentId }) => {
                         className: classes.textStyle
                     }}
                     variant="outlined"
-                    name='deposit' label='Deposit' fullWidth value={coinData.deposit} 
-                    onChange={(e) => setcoinData({ ...coinData, deposit: e.target.value })}/>
+                    name='deposit' label='Deposit' fullWidth value={noteData.deposit} 
+                    onChange={(e) => setnoteData({ ...noteData, deposit: e.target.value })}/>
 
                 <CssTextField 
                     className={classes.textMargin}
@@ -70,8 +71,8 @@ const Form = ({ currentId, setCurrentId }) => {
                         className: classes.textStyle
                     }}
                     variant="outlined"
-                    name='entry' label='Entry' fullWidth value={coinData.entry} 
-                    onChange={(e) => setcoinData({ ...coinData, entry: e.target.value })}/>
+                    name='entry' label='Entry' fullWidth value={noteData.entry} 
+                    onChange={(e) => setnoteData({ ...noteData, entry: e.target.value })}/>
 
                 <CssTextField 
                     className={classes.textMargin}
@@ -79,8 +80,8 @@ const Form = ({ currentId, setCurrentId }) => {
                         className: classes.textStyle
                     }}
                     variant="outlined"
-                    name='stoploss' label='Stop Loss' fullWidth value={coinData.stoploss} 
-                    onChange={(e) => setcoinData({ ...coinData, stoploss: e.target.value })}/>
+                    name='stoploss' label='Stop Loss' fullWidth value={noteData.stoploss} 
+                    onChange={(e) => setnoteData({ ...noteData, stoploss: e.target.value })}/>
                 
                 <CssTextField 
                     className={classes.textMargin}
@@ -88,8 +89,8 @@ const Form = ({ currentId, setCurrentId }) => {
                         className: classes.textStyle
                     }}
                     variant="outlined"
-                    name='tp1' label='Take Profit 1' fullWidth value={coinData.tp1} 
-                    onChange={(e) => setcoinData({ ...coinData, tp1: e.target.value })}/>
+                    name='tp1' label='Take Profit 1' fullWidth value={noteData.tp1} 
+                    onChange={(e) => setnoteData({ ...noteData, tp1: e.target.value })}/>
                 
                 <CssTextField 
                     className={classes.textMargin}
@@ -97,8 +98,17 @@ const Form = ({ currentId, setCurrentId }) => {
                         className: classes.textStyle
                     }}
                     variant="outlined"
-                    name='tp2' label='Take Profit 2' fullWidth value={coinData.tp2} 
-                    onChange={(e) => setcoinData({ ...coinData, tp2: e.target.value })}/>
+                    name='tp2' label='Take Profit 2' fullWidth value={noteData.tp2} 
+                    onChange={(e) => setnoteData({ ...noteData, tp2: e.target.value })}/>
+                
+                <CssTextField 
+                    className={classes.textMargin}
+                    InputProps={{
+                        className: classes.textStyle
+                    }}
+                    variant="outlined"
+                    name='closeposition' label='Close Position' fullWidth value={noteData.closeposition} 
+                    onChange={(e) => setnoteData({ ...noteData, closeposition: e.target.value })}/>
                     
                 <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth >Submit</Button>
                 <Button className={classes.textStyle} variant='contained' color='secondary' size='small' onClick={clear} fullWidth >Clear</Button>
