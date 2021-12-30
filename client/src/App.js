@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Container, AppBar, Typography, Grow, Grid, TextField } from '@material-ui/core'
-// import memories from './images/memories.png'
 
 import { getTradingNotes } from './actions/tradingNotes'
 import Form from './components/Form/Form'
-import useStyles, { CssTextField }  from './styles'
-// import MainTable from './components/MainTable/MainTable'
+import useStyles, { NoteTextField }  from './styles'
 import TradingNotes from './components/Cards/TradingNotes'
 
 const App = () => {
@@ -21,20 +19,15 @@ const App = () => {
 
     return (
         <Container maxWidth='lg'>
-            {/* <AppBar className = {classes.appBar} position='static' color='inherit'>
-                <Typography className = {classes.heading} variant='h2' align='center'>Trading Notes</Typography>
-            </AppBar> */}
-
             <Grow in>
                 <Container>
                     <Grid container justify='space-between' alignItems='stretch' spacing={4}>
                             <Grid item xs={12} sm={8}>
-                                <TextField 
+                                <NoteTextField 
                                         className={classes.textMargin}
                                         InputProps={{
                                             className: classes.textStyle
                                         }}
-                                        // variant="outlined"
                                         name='search' label='Search' fullWidth 
                                         value={currentSearch} 
                                         onChange={(e) => setCurrentSearch(e.target.value)}
