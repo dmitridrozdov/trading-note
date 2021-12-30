@@ -17,11 +17,35 @@ export default makeStyles((theme) => ({
     width: '97%',
     margin: '10px 0',
   },
+
   buttonSubmit: {
     marginTop: 20,
     marginBottom: 10,
     fontFamily: 'Montserrat',
+    fontSize: '10px',
+    color: '#5fb360',
+    border: '1px solid #5fb360',
+    borderRadius: '5px',
+    '&:hover': {
+      backgroundColor: 'white',
+      color: 'green',
+      border: '1px solid green',
+    },
   },
+
+  buttonClear: {
+    fontFamily: 'Montserrat',
+    fontSize: '10px',
+    color: '#ed2939',
+    border: '1px solid #ed2939',
+    borderRadius: '5px',
+    '&:hover': {
+      backgroundColor: 'white',
+      color: 'darkred',
+      border: '1px solid darkred',
+    },
+  },
+
   textStyle: {
     fontFamily: 'Montserrat',
     fontSize: '12px',
