@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Container, AppBar, /*Typography,*/ Grow, Grid } from '@material-ui/core'
+import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
 // import memories from './images/memories.png'
 
 import { getTradingNotes } from './actions/tradingNotes'
@@ -21,7 +21,7 @@ const App = () => {
     return (
         <Container maxWidth='lg'>
             <AppBar className = {classes.appBar} position='static' color='inherit'>
-                {/* <Typography className = {classes.heading} variant='h2' align='center'>Trawin</Typography> */}
+                <Typography className = {classes.heading} variant='h2' align='center'>Trading Notes</Typography>
             </AppBar>
 
             <Grow in>
