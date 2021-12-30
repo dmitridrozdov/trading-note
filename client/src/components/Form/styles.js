@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
 
   paper: {
     padding: theme.spacing(2),
-    backgroundColor: 'rgba(0,0,0,0.2)'
+    // backgroundColor: 'rgba(0,0,0,0.2)'
     // boxShadow: 'none',
   },
   form: {
@@ -23,14 +23,39 @@ export default makeStyles((theme) => ({
     fontFamily: 'Montserrat',
   },
   textStyle: {
-    color: 'white', 
+    // color: 'white', 
     fontFamily: 'Montserrat',
+    fontSize: '12px',
   },
   textMargin: {
     marginTop: 10,
   },
 }));
 
+export const NoteTextField = withStyles({
+  root: {
+    '& label': {
+      color: 'lightgrey',
+    },
+    '&.Mui-focused': {
+      color: 'lightgrey'
+    },
+    '& label.Mui-focused': {
+      color: 'lightgrey',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'lightgrey',
+      },
+      '&:hover fieldset': {
+        borderColor: 'lightgrey',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'lightgrey',
+      },
+    },
+  },
+})(TextField);
 
 export const CssTextField = withStyles({
   root: {
