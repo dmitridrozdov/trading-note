@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import useStyles, { CssTextField } from './styles'
+import useStyles, { NoteTextField } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Button, Typography, Paper, TextField } from '@material-ui/core'
@@ -38,75 +38,75 @@ const Form = ({ currentId, setCurrentId }) => {
         <Paper className={classes.paper}>
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant='h6' className={classes.textStyle}>Add Trading Note</Typography>
-                <TextField 
+                <NoteTextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    variant="outlined"
+                    InputLabelProps={{style: {fontSize: '12px'}}}
                     name='coin' label='coin' fullWidth
                     value={noteData.coin} onChange={(e) => setnoteData({ ...noteData, coin: e.target.value })}/>
                 
-                <TextField 
+                <NoteTextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    variant="outlined"
+                    // variant="outlined"
                     name='type' label='Type' fullWidth
                     value={noteData.type} onChange={(e) => setnoteData({ ...noteData, type: e.target.value })}/>
 
-                <TextField 
+                <NoteTextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    variant="outlined"
+                    // variant="outlined"
                     name='deposit' label='Deposit' fullWidth value={noteData.deposit} 
                     onChange={(e) => setnoteData({ ...noteData, deposit: e.target.value })}/>
 
-                <TextField 
+                <NoteTextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    variant="outlined"
+                    // variant="outlined"
                     name='entry' label='Entry' fullWidth value={noteData.entry} 
                     onChange={(e) => setnoteData({ ...noteData, entry: e.target.value })}/>
 
-                <TextField 
+                <NoteTextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    variant="outlined"
+                    // variant="outlined"
                     name='stoploss' label='Stop Loss' fullWidth value={noteData.stoploss} 
                     onChange={(e) => setnoteData({ ...noteData, stoploss: e.target.value })}/>
                 
-                <TextField 
+                <NoteTextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    variant="outlined"
+                    // variant="outlined"
                     name='tp1' label='Take Profit 1' fullWidth value={noteData.tp1} 
                     onChange={(e) => setnoteData({ ...noteData, tp1: e.target.value })}/>
                 
-                <TextField 
+                <NoteTextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    variant="outlined"
+                    // variant="outlined"
                     name='tp2' label='Take Profit 2' fullWidth value={noteData.tp2} 
                     onChange={(e) => setnoteData({ ...noteData, tp2: e.target.value })}/>
                 
-                <TextField 
+                <NoteTextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    variant="outlined"
+                    // variant="outlined"
                     name='closeposition' label='Close Position' fullWidth value={noteData.closeposition} 
                     onChange={(e) => setnoteData({ ...noteData, closeposition: e.target.value })}/>
                     
