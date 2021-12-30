@@ -17,8 +17,8 @@ export default makeStyles(() => ({
     marginLeft: '15px',
   },
   textStyle: {
-    color: 'white', 
     fontFamily: 'Montserrat',
+    fontSize: '12px',
   },
   textMargin: {
     marginTop: 10,
@@ -46,6 +46,32 @@ export const CssTextField = withStyles({
       '&.Mui-focused fieldset': {
         borderColor: 'white',
       },
+    },
+  },
+})(TextField);
+
+export const NoteTextField = withStyles({
+  root: {
+    '& label': {
+      color: 'lightgrey',
+      fontFamily: 'Montserrat',
+    },
+    '&.Mui-focused': {
+      color: 'lightgrey',
+      fontFamily: 'Montserrat',
+    },
+    '& label.Mui-focused': {
+      color: 'lightgrey',
+      fontFamily: 'Montserrat',
+    },
+    '& .MuiInput-underline:before': {
+      borderBottomColor: '#f0efed', // Semi-transparent underline
+    },
+    '& .MuiInput-underline:hover:before': {
+      borderBottomColor: '#f0efed', // Solid underline on hover
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#f0efed', // Solid underline on focus
     },
   },
 })(TextField);
