@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux'
-import coins from './tradingNotes'
+import notes from './tradingNotes'
 
-export default combineReducers({ coins })
+export default combineReducers({ notes })
