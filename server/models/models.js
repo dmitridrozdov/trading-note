@@ -8,6 +8,7 @@ const tradingNoteSchema = mongoose.Schema({
     stoploss: String,
     tp1: String,
     tp2: String,
+    closeposition: String,
     createAt: {
         type: Date,
         default: new Date()
