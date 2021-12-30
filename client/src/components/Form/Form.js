@@ -52,7 +52,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    // variant="outlined"
+                    InputLabelProps={{style: {fontSize: '12px'}}}
                     name='type' label='Type' fullWidth
                     value={noteData.type} onChange={(e) => setnoteData({ ...noteData, type: e.target.value })}/>
 
@@ -61,7 +61,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    // variant="outlined"
+                    InputLabelProps={{style: {fontSize: '12px'}}}
                     name='deposit' label='Deposit' fullWidth value={noteData.deposit} 
                     onChange={(e) => setnoteData({ ...noteData, deposit: e.target.value })}/>
 
@@ -70,7 +70,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    // variant="outlined"
+                    InputLabelProps={{style: {fontSize: '12px'}}}
                     name='entry' label='Entry' fullWidth value={noteData.entry} 
                     onChange={(e) => setnoteData({ ...noteData, entry: e.target.value })}/>
 
@@ -79,7 +79,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    // variant="outlined"
+                    InputLabelProps={{style: {fontSize: '12px'}}}
                     name='stoploss' label='Stop Loss' fullWidth value={noteData.stoploss} 
                     onChange={(e) => setnoteData({ ...noteData, stoploss: e.target.value })}/>
                 
@@ -88,7 +88,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    // variant="outlined"
+                    InputLabelProps={{style: {fontSize: '12px'}}}
                     name='tp1' label='Take Profit 1' fullWidth value={noteData.tp1} 
                     onChange={(e) => setnoteData({ ...noteData, tp1: e.target.value })}/>
                 
@@ -97,7 +97,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    // variant="outlined"
+                    InputLabelProps={{style: {fontSize: '12px'}}}
                     name='tp2' label='Take Profit 2' fullWidth value={noteData.tp2} 
                     onChange={(e) => setnoteData({ ...noteData, tp2: e.target.value })}/>
                 
@@ -106,7 +106,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     InputProps={{
                         className: classes.textStyle
                     }}
-                    // variant="outlined"
+                    InputLabelProps={{style: {fontSize: '12px'}}}
                     name='closeposition' label='Close Position' fullWidth value={noteData.closeposition} 
                     onChange={(e) => setnoteData({ ...noteData, closeposition: e.target.value })}/>
                     
