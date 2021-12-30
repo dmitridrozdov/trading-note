@@ -6,7 +6,8 @@ import { Container, AppBar, Typography, Grow, Grid, TextField } from '@material-
 import { getTradingNotes } from './actions/tradingNotes'
 import Form from './components/Form/Form'
 import useStyles, { CssTextField }  from './styles'
-import MainTable from './components/MainTable/MainTable'
+// import MainTable from './components/MainTable/MainTable'
+import TradingNotes from './components/Cards/TradingNotes'
 
 const App = () => {
     const [currentId, setCurrentId] = useState(null)
@@ -47,7 +48,7 @@ const App = () => {
                 <Container>
                     <Grid container justify='space-between' spacing={4}>
                         <Grid item xs={12} sm={8}>
-                            <MainTable setCurrentId={setCurrentId}/>
+                            <TradingNotes setCurrentId={setCurrentId}/>
                         </Grid>
                         <Grid item xs={12} sm={4}>
                             <Form currentId={currentId} setCurrentId={setCurrentId}/>
