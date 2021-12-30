@@ -52,6 +52,7 @@ const MainTable = ({ setCurrentId }) => {
                             <StyledTableCell>Stop Loss</StyledTableCell>
                             <StyledTableCell>Take Profit 1</StyledTableCell>
                             <StyledTableCell>Take Profit 2</StyledTableCell>
+                            <StyledTableCell>Close Position</StyledTableCell>
                             <StyledTableCell>Edit/Delete</StyledTableCell>
                         </TableRow>
                         </TableHead>
@@ -67,6 +68,7 @@ const MainTable = ({ setCurrentId }) => {
                               <StyledTableCell>{note.stoploss}</StyledTableCell>
                               <StyledTableCell>{note.tp1}</StyledTableCell>
                               <StyledTableCell>{note.tp2}</StyledTableCell>
+                              <StyledTableCell>{note.closeposition}</StyledTableCell>
                               <StyledTableCell>
                                   <Button style={{color: 'white'}} size='small' onClick={() => {setCurrentId(note._id)}}>
                                     <MoreHorizIcon fontSize='default' />
