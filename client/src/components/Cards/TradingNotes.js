@@ -1,26 +1,25 @@
-import React from 'react';
-import { Grid, CircularProgress } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import { Grid, CircularProgress } from '@material-ui/core'
+import { useSelector } from 'react-redux'
 
-import Agent from './Card/TradingNote';
-import useStyles from './styles';
+import TradingNote from './Card/TradingNote'
+import useStyles from './styles'
 
-const Agents = ({ setCurrentId }) => {
-  const agents = useSelector((state) => state.agents);
-  const classes = useStyles();
+const TradingNotes = ({ setCurrentId }) => {
+  const notes = useSelector((state) => state.notes)
+  const classes = useStyles()
 
   return (
-    !agents.length ? <CircularProgress /> : (
+    !notes.length ? <CircularProgress /> : (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
-        {agents.map((agent) => (
-          // <Grid key={post._id} item xs={12} sm={6} md={6}>
-          //   <Agent post={post} setCurrentId={setCurrentId} />
-          // </Grid>
-          agent
+        {notes.map((note) => (
+          <Grid key={note._id} item xs={12} sm={6} md={6}>
+            <TradingNote note={note} setCurrentId={setCurrentId} />
+          </Grid>
         ))}
       </Grid>
     )
-  );
-};
+  )
+}
 
-export default Agents;
+export default TradingNotes
