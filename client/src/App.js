@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
+import { Container, AppBar, Typography, Grow, Grid, TextField } from '@material-ui/core'
 // import memories from './images/memories.png'
 
 import { getTradingNotes } from './actions/tradingNotes'
@@ -28,12 +28,12 @@ const App = () => {
                 <Container>
                     <Grid container justify='space-between' alignItems='stretch' spacing={4}>
                             <Grid item xs={12} sm={8}>
-                                <CssTextField 
+                                <TextField 
                                         className={classes.textMargin}
                                         InputProps={{
                                             className: classes.textStyle
                                         }}
-                                        variant="outlined"
+                                        // variant="outlined"
                                         name='search' label='Search' fullWidth 
                                         value={currentSearch} 
                                         onChange={(e) => setCurrentSearch(e.target.value)}
