@@ -23,7 +23,6 @@ export default makeStyles((theme) => ({
     fontFamily: 'Montserrat',
   },
   textStyle: {
-    // color: 'white', 
     fontFamily: 'Montserrat',
     fontSize: '12px',
   },
@@ -36,23 +35,24 @@ export const NoteTextField = withStyles({
   root: {
     '& label': {
       color: 'lightgrey',
+      fontFamily: 'Montserrat',
     },
     '&.Mui-focused': {
-      color: 'lightgrey'
+      color: 'lightgrey',
+      fontFamily: 'Montserrat',
     },
     '& label.Mui-focused': {
       color: 'lightgrey',
+      fontFamily: 'Montserrat',
     },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'lightgrey',
-      },
-      '&:hover fieldset': {
-        borderColor: 'lightgrey',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: 'lightgrey',
-      },
+    '& .MuiInput-underline:before': {
+      borderBottomColor: '#f0efed', // Semi-transparent underline
+    },
+    '& .MuiInput-underline:hover:before': {
+      borderBottomColor: '#f0efed', // Solid underline on hover
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#f0efed', // Solid underline on focus
     },
   },
 })(TextField);
