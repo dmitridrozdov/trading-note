@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import useStyles, { CssTextField } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Button, Typography, Paper } from '@material-ui/core'
+import { Button, Typography, Paper, TextField } from '@material-ui/core'
 import { createTradingNote, updateTradingNote } from '../../actions/tradingNotes'
 
 
@@ -37,8 +37,8 @@ const Form = ({ currentId, setCurrentId }) => {
     return(
         <Paper className={classes.paper}>
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant='h6' className={classes.textStyle}>Add record</Typography>
-                <CssTextField 
+                <Typography variant='h6' className={classes.textStyle}>Add Trading Note</Typography>
+                <TextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
@@ -47,7 +47,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='coin' label='coin' fullWidth
                     value={noteData.coin} onChange={(e) => setnoteData({ ...noteData, coin: e.target.value })}/>
                 
-                <CssTextField 
+                <TextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
@@ -56,7 +56,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='type' label='Type' fullWidth
                     value={noteData.type} onChange={(e) => setnoteData({ ...noteData, type: e.target.value })}/>
 
-                <CssTextField 
+                <TextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
@@ -65,7 +65,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='deposit' label='Deposit' fullWidth value={noteData.deposit} 
                     onChange={(e) => setnoteData({ ...noteData, deposit: e.target.value })}/>
 
-                <CssTextField 
+                <TextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
@@ -74,7 +74,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='entry' label='Entry' fullWidth value={noteData.entry} 
                     onChange={(e) => setnoteData({ ...noteData, entry: e.target.value })}/>
 
-                <CssTextField 
+                <TextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
@@ -83,7 +83,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='stoploss' label='Stop Loss' fullWidth value={noteData.stoploss} 
                     onChange={(e) => setnoteData({ ...noteData, stoploss: e.target.value })}/>
                 
-                <CssTextField 
+                <TextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
@@ -92,7 +92,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='tp1' label='Take Profit 1' fullWidth value={noteData.tp1} 
                     onChange={(e) => setnoteData({ ...noteData, tp1: e.target.value })}/>
                 
-                <CssTextField 
+                <TextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
@@ -101,7 +101,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='tp2' label='Take Profit 2' fullWidth value={noteData.tp2} 
                     onChange={(e) => setnoteData({ ...noteData, tp2: e.target.value })}/>
                 
-                <CssTextField 
+                <TextField 
                     className={classes.textMargin}
                     InputProps={{
                         className: classes.textStyle
@@ -110,7 +110,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     name='closeposition' label='Close Position' fullWidth value={noteData.closeposition} 
                     onChange={(e) => setnoteData({ ...noteData, closeposition: e.target.value })}/>
                     
-                <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth >Submit</Button>
+                <Button className={classes.buttonSubmit} variant='contained' color='primary' size='large' type='submit' fullWidth >Create Note</Button>
                 <Button className={classes.textStyle} variant='contained' color='secondary' size='small' onClick={clear} fullWidth >Clear</Button>
             </form>
         </Paper>
