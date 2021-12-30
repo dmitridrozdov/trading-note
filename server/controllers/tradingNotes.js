@@ -25,9 +25,9 @@ export const createTradingNote =  async (req, res) => {
 
 export const updateTradingNote = async (req, res) => {
     const { id } = req.params;
-    const { coin, address, phone } = req.body;
+    const { coin, type, deposit, entry, stoploss, tp1, tp2} = req.body;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
-    const updatedTradingNote = { coin, address, phone, _id: id };
+    const updatedTradingNote = { coin, type, deposit, entry, stoploss, tp1, tp2, _id: id };
     await TradingNote.findByIdAndUpdate(id, updatedTradingNote, { new: true });
     res.json(updatedTradingNote);
 }
