@@ -12,19 +12,19 @@ export const getTradingNotes = (searchStr) => async(dispatch) => {
     }   
 }
 
-export const createTradingNote = (post) => async(dispatch) => {
+export const createTradingNote = (note) => async(dispatch) => {
     try {
-        const { data } = await api.createTradingNote(post)
+        const { data } = await api.createTradingNote(note)
         dispatch({ type: CREATE, payload: data })
     } catch(error) {
         console.log(error.message)
     }   
 }
 
-export const updateTradingNote = (id, post) => async(dispatch) => {
+export const updateTradingNote = (id, note) => async(dispatch) => {
     try {
-        const { data } = await api.updateTradingNote(id, post)
-        console.log(post)
+        const { data } = await api.updateTradingNote(id, note)
+        console.log(note)
         dispatch({ type: UPDATE, payload: data })
     } catch(error) {
         console.log(error.message)
