@@ -18,15 +18,16 @@ const TradingNote = ({ note, setCurrentId }) => {
         <Typography variant="body2">{moment(note.createdAt).fromNow()}</Typography>
       </div> */}
       <div className={classes.overlay2}>
-        <Button style={{ color: 'black' }} size="small" onClick={() => setCurrentId(note._id)}><MoreHorizIcon fontSize="default" /></Button>
+        <Button style={{ color: 'lightgrey' }} size="small" onClick={() => setCurrentId(note._id)}><MoreHorizIcon fontSize="default" /></Button>
+        <Button style={{ color: 'lightgrey' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
       </div>
       <Typography className={classes.title} gutterBottom variant="h5" component="h2">{note.coin}</Typography>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">{note.deposit}</Typography>
       </CardContent>
-      <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /> Delete</Button>
-      </CardActions>
+      {/* <CardActions className={classes.cardActions}> */}
+        {/* <Button size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /> Delete</Button> */}
+      {/* </CardActions> */}
     </Card>
   );
 };
