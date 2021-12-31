@@ -14,7 +14,7 @@ export const getTradingNotes = async (req, res) => {
 
 export const createTradingNote =  async (req, res) => {
     const post = req.body
-    const newTradingNote = new TradingNote(post)
+    const newTradingNote = new TradingNote({ ...post, createdAt: new Date().toISOString() })
     try {
         await newTradingNote.save()
         res.status(201).json(newTradingNote)
