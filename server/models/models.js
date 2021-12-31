@@ -9,7 +9,7 @@ const tradingNoteSchema = mongoose.Schema({
     tp1: String,
     tp2: String,
     closeposition: String,
-    createAt: {
+    createdAt: {
         type: Date,
         default: new Date()
     }
