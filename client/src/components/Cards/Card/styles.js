@@ -26,7 +26,7 @@ export default makeStyles({
     display: 'inline-block',
     fontFamily: 'Montserrat',
     fontSize: '12px',
-    color: 'lightgrey',
+    color: '#ababab',
    },
 
   titleActive: {
@@ -42,7 +42,7 @@ export default makeStyles({
     fontFamily: 'Roboto Slab',
     fontSize: '18px',
     display: 'inline-block',
-    color: 'green',
+    color: '#33b864',
   },
 
   titleLoss: {
@@ -50,13 +50,13 @@ export default makeStyles({
     fontFamily: 'Roboto Slab',
     fontSize: '18px',
     display: 'inline-block',
-    color: 'red',
+    color: '#ed2939',
   },
 
   noteLabel: {
     fontFamily: 'Montserrat',
     fontSize: '12px',
-    color: 'lightgrey',
+    color: '#ababab',
   },
 
   noteInput: {
