@@ -5,7 +5,7 @@ export default makeStyles({
     noteLabel: {
         fontFamily: 'Montserrat',
         fontSize: '12px',
-        color: 'lightgrey',
+        color: '#ababab',
     },
     
     noteInput: {
@@ -16,7 +16,7 @@ export default makeStyles({
     noteStopLabel: {
         fontFamily: 'Montserrat',
         fontSize: '12px',
-        color: '#fabec3',
+        color: '#fc9da5',
     },
     
     noteStopInput: {
