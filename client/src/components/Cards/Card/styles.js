@@ -34,9 +34,6 @@ export default makeStyles({
     display: 'inline-block',
   },
 
-  marginRow: {
-    lineHeight: '40px',
-  },
 
   // grid: {
   //   display: 'flex',
