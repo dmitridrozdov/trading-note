@@ -1,16 +1,18 @@
 import React from 'react'
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/'
+import { Card, CardContent, Button, Typography } from '@material-ui/core/'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
 // import moment from 'moment'
 import { useDispatch } from 'react-redux'
 
+import GridNoteContainer from './GridNoteContainer/GridNoteContainer'
+
 import { deleteTradingNote } from '../../../actions/tradingNotes'
-import useStyles from './styles';
+import useStyles from './styles'
 
 const TradingNote = ({ note, setCurrentId }) => {
-  const dispatch = useDispatch();
-  const classes = useStyles();
+  const dispatch = useDispatch()
+  const classes = useStyles()
 
   return (
     <Card className={classes.card}>
@@ -26,35 +28,8 @@ const TradingNote = ({ note, setCurrentId }) => {
         <Typography className={classes.itemTitle} gutterBottom>{note.type}</Typography>
       </div>
       <CardContent>
-        {/* <Typography variant="body2" color="textSecondary" component="p">{note.deposit}</Typography> */}
-        <div className={classes.gridContainer}>
-          <div className={classes.column1}>
-            <Typography className={classes.noteLabel}>Deposit:</Typography>
-            <Typography className={classes.noteInput}>{note.deposit}</Typography>
-          </div>
-          <div className={classes.column2}>
-            <Typography className={classes.noteLabel}>Deposit:</Typography>
-            <Typography className={classes.noteInput}>{note.deposit}</Typography>
-          </div>
-          <div className={classes.column3}>
-            <Typography className={classes.noteLabel}>Deposit:</Typography>
-            <Typography className={classes.noteInput}>{note.deposit}</Typography>
-          </div>
-        </div>
-        <div className={classes.gridContainer}>
-          <div className={classes.column1}>
-            <Typography className={classes.noteLabel}>Deposit:</Typography>
-            <Typography className={classes.noteInput}>{note.deposit}</Typography>
-          </div>
-          <div className={classes.column2}>
-            <Typography className={classes.noteLabel}>Deposit:</Typography>
-            <Typography className={classes.noteInput}>{note.deposit}</Typography>
-          </div>
-          <div className={classes.column3}>
-            <Typography className={classes.noteLabel}>Deposit:</Typography>
-            <Typography className={classes.noteInput}>{note.deposit}</Typography>
-          </div>
-        </div>
+          <GridNoteContainer label1='Deposit:' value1={note.deposit} label2='Entry:' value2={note.entry} label3='Stoploss:' value3={note.stoploss} />
+          <GridNoteContainer label1='Target:' value1={note.tp1} label2='Takeprofit:' value2={note.tp2} label3='Exit:' value3={note.closeposition} />
       </CardContent>
     </Card>
   );
