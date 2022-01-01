@@ -28,8 +28,11 @@ const TradingNote = ({ note, setCurrentId }) => {
         <Typography className={classes.itemTitle} gutterBottom>{note.type}</Typography>
       </div>
       <CardContent>
-          <GridNoteContainer label1='Deposit:' value1={note.deposit} label2='Entry:' value2={note.entry} label3='Stoploss:' value3={note.stoploss} />
-          <GridNoteContainer label1='Target:' value1={note.tp1} label2='Takeprofit:' value2={note.tp2} label3='Exit:' value3={note.closeposition} />
+          <GridNoteContainer label1='Deposit:' value1={note.deposit} label2='Entry:' 
+              value2={note.entry} label3='Stoploss:' value3={note.stoploss} />
+          <br />
+          <GridNoteContainer className={classes.marginRow} label1='Target:' value1={note.tp1} 
+              label2='Takeprofit:' value2={note.tp2} label3='Close Position:' value3={note.closeposition} />
       </CardContent>
     </Card>
   );
