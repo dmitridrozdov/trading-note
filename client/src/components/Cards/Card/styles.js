@@ -11,6 +11,8 @@ export default makeStyles({
     position: 'relative',
   },
 
+  
+
   overlay2: {
     position: 'absolute',
     top: '10px',
@@ -27,11 +29,39 @@ export default makeStyles({
     color: 'lightgrey',
    },
 
-   title: {
+  titleActive: {
     padding: '10px 20px',
     fontFamily: 'Roboto Slab',
     fontSize: '18px',
     display: 'inline-block',
+    color: 'black',
+  },
+
+  titleProfit: {
+    padding: '10px 20px',
+    fontFamily: 'Roboto Slab',
+    fontSize: '18px',
+    display: 'inline-block',
+    color: 'green',
+  },
+
+  titleLoss: {
+    padding: '10px 20px',
+    fontFamily: 'Roboto Slab',
+    fontSize: '18px',
+    display: 'inline-block',
+    color: 'red',
+  },
+
+  noteLabel: {
+    fontFamily: 'Montserrat',
+    fontSize: '12px',
+    color: 'lightgrey',
+  },
+
+  noteInput: {
+      fontFamily: 'Montserrat',
+      fontSize: '14px',
   },
 
 
