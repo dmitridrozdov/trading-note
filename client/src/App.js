@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Container, AppBar, Typography, Grow, Grid, TextField } from '@material-ui/core'
+import { Container, Grow, Grid } from '@material-ui/core'
 
 import { getTradingNotes } from './actions/tradingNotes'
 import Form from './components/Form/Form'
