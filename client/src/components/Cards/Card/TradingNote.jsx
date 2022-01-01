@@ -10,12 +10,25 @@ import GridNoteContainer from './GridNoteContainer/GridNoteContainer'
 import { deleteTradingNote } from '../../../actions/tradingNotes'
 import useStyles from './styles'
 
+
+
 const TradingNote = ({ note, setCurrentId }) => {
   const dispatch = useDispatch()
   const classes = useStyles()
 
+  const getClassName = (closeposition, entry) => {
+    if (closeposition === '') {
+      return classes.titleActive
+    }
+    const classResult = parseFloat(closeposition)
+     > parseFloat(entry) ? classes.titleProfit : classes.titleLoss
+    return classResult
+  }
+
+  const cardType = getClassName(note.closeposition, note.entry)
+
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} >
       {/* <div className={classes.overlay}>
         <Typography variant="body2">{moment(note.createdAt).fromNow()}</Typography>
       </div> */}
@@ -24,7 +37,7 @@ const TradingNote = ({ note, setCurrentId }) => {
         <Button style={{ color: 'lightgrey' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
       </div>
       <div className={classes.cellTitle}>
-        <Typography className={classes.title} gutterBottom variant="h5" component="h2">{(note.coin).toUpperCase()}</Typography>
+        <Typography className={cardType} gutterBottom variant="h5" component="h2">{(note.coin).toUpperCase()}</Typography>
         <Typography className={classes.itemTitle} gutterBottom>{note.type}</Typography>
       </div>
       <CardContent>
@@ -33,6 +46,11 @@ const TradingNote = ({ note, setCurrentId }) => {
           <br />
           <GridNoteContainer className={classes.marginRow} label1='Take profit 1:' value1={note.tp1} 
               label2='Take profit 2:' value2={note.tp2} label3='Close Position:' value3={note.closeposition} stoplossline='false'/>
+          <br />
+          <div className={classes.column2}>
+            <Typography className={classes.noteLabel}>Profit:</Typography>
+            <Typography className={classes.noteInput}>Some profit</Typography>
+          </div>
       </CardContent>
     </Card>
   );
