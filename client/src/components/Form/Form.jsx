@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import useStyles, { NoteTextField } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Button, Typography, Paper, TextField } from '@material-ui/core'
+import { Button, Typography, Paper } from '@material-ui/core'
 import { createTradingNote, updateTradingNote } from '../../actions/tradingNotes'
 
 
