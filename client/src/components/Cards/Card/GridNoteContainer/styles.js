@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 export default makeStyles({
+    
     noteLabel: {
         fontFamily: 'Montserrat',
         fontSize: '12px',
