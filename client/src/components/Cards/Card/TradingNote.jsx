@@ -33,8 +33,8 @@ const TradingNote = ({ note, setCurrentId }) => {
         <Typography variant="body2">{moment(note.createdAt).fromNow()}</Typography>
       </div> */}
       <div className={classes.overlay2}>
-        <Button style={{ color: 'lightgrey' }} size="small" onClick={() => setCurrentId(note._id)}><Edit fontSize="small" /></Button>
-        <Button style={{ color: 'lightgrey' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
+        <Button style={{ color: '#ababab' }} size="small" onClick={() => setCurrentId(note._id)}><Edit fontSize="small" /></Button>
+        <Button style={{ color: '#ababab' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
       </div>
       <div className={classes.cellTitle}>
         <Typography className={cardType} gutterBottom variant="h5" component="h2">{(note.coin).toUpperCase()}</Typography>
