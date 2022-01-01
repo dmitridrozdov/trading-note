@@ -29,10 +29,10 @@ const TradingNote = ({ note, setCurrentId }) => {
       </div>
       <CardContent>
           <GridNoteContainer label1='Deposit:' value1={note.deposit} label2='Entry:' 
-              value2={note.entry} label3='Stoploss:' value3={note.stoploss} />
+              value2={note.entry} label3='Stoploss:' value3={note.stoploss} stoplossline='true'/>
           <br />
-          <GridNoteContainer className={classes.marginRow} label1='Target:' value1={note.tp1} 
-              label2='Takeprofit:' value2={note.tp2} label3='Close Position:' value3={note.closeposition} />
+          <GridNoteContainer className={classes.marginRow} label1='Take profit 1:' value1={note.tp1} 
+              label2='Take profit 2:' value2={note.tp2} label3='Close Position:' value3={note.closeposition} stoplossline='false'/>
       </CardContent>
     </Card>
   );
