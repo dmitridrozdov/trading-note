@@ -12,6 +12,18 @@ export default makeStyles({
         fontSize: '14px',
     },
 
+    noteStopLabel: {
+        fontFamily: 'Montserrat',
+        fontSize: '12px',
+        color: '#fabec3',
+    },
+    
+    noteStopInput: {
+        fontFamily: 'Montserrat',
+        fontSize: '14px',
+        color: '#ed2939',
+    },
+
     gridContainer: {
         display: 'grid',
         gridAutoColumns: '1fr',
