@@ -6,9 +6,12 @@ export default makeStyles({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    borderRadius: '5px',
+    // borderRadius: '5px',
     height: '100%',
     position: 'relative',
+    borderShadow: 'none',
+    border: 'none',
+    borderColor: 'red',
   },
 
   
@@ -23,6 +26,14 @@ export default makeStyles({
   cellTitle: { whiteSpace: 'nowrap' },
 
   itemTitle: { 
+    display: 'inline-block',
+    fontFamily: 'Montserrat',
+    fontSize: '12px',
+    color: '#ababab',
+   },
+
+  timeTitle: {
+    padding: '0px 20px',
     display: 'inline-block',
     fontFamily: 'Montserrat',
     fontSize: '12px',
