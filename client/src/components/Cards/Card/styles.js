@@ -6,15 +6,13 @@ export default makeStyles({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    // borderRadius: '5px',
+    borderRadius: '5px',
     height: '100%',
     position: 'relative',
     borderShadow: 'none',
     border: 'none',
     borderColor: 'red',
   },
-
-  
 
   overlay2: {
     position: 'absolute',
@@ -71,22 +69,20 @@ export default makeStyles({
   },
 
   noteInput: {
-      fontFamily: 'Montserrat',
+      fontFamily: 'Varela Round',
       fontSize: '14px',
   },
 
+  noteLoss: {
+    fontFamily: 'Varela Round',
+    fontSize: '18px',
+    color: '#ed2939',
+  },
 
-  // grid: {
-  //   display: 'flex',
-  // },
-  // details: {
-  //   display: 'flex',
-  //   justifyContent: 'space-between',
-  //   margin: '20px',
-  // },
-  // cardActions: {
-  //   padding: '0 16px 8px 16px',
-  //   display: 'flex',
-  //   justifyContent: 'space-between',
-  // },
+  noteProfit: {
+    fontFamily: 'Varela Round',
+    fontSize: '18px',
+    color: '#33b864',
+  },
+
 });
