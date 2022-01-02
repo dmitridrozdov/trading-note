@@ -1,8 +1,8 @@
 import React from 'react'
-import { Card, CardContent, Button, Typography } from '@material-ui/core/'
+import { Card, CardContent, Button, Typography, Divider } from '@material-ui/core/'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
-// import moment from 'moment'
+import moment from 'moment'
 import { useDispatch } from 'react-redux'
 
 import GridNoteContainer from './GridNoteContainer/GridNoteContainer'
@@ -29,9 +29,6 @@ const TradingNote = ({ note, setCurrentId }) => {
 
   return (
     <Card className={classes.card} >
-      {/* <div className={classes.overlay}>
-        <Typography variant="body2">{moment(note.createdAt).fromNow()}</Typography>
-      </div> */}
       <div className={classes.overlay2}>
         <Button style={{ color: '#ababab' }} size="small" onClick={() => setCurrentId(note._id)}><Edit fontSize="small" /></Button>
         <Button style={{ color: '#ababab' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
@@ -39,6 +36,9 @@ const TradingNote = ({ note, setCurrentId }) => {
       <div className={classes.cellTitle}>
         <Typography className={cardType} gutterBottom variant="h5" component="h2">{(note.coin).toUpperCase()}</Typography>
         <Typography className={classes.itemTitle} gutterBottom>{note.type}</Typography>
+      </div>
+      <div className={classes.cellTitle}>
+        <Typography className={classes.timeTitle}>{moment(note.createdAt).fromNow()}</Typography>
       </div>
       <CardContent>
           <GridNoteContainer label1='Deposit:' value1={note.deposit} label2='Entry:' 
