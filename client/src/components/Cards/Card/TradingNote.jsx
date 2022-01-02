@@ -47,10 +47,24 @@ const TradingNote = ({ note, setCurrentId }) => {
           <GridNoteContainer className={classes.marginRow} label1='Take profit 1:' value1={note.tp1} 
               label2='Take profit 2:' value2={note.tp2} label3='Close Position:' value3={note.closeposition} stoplossline='false'/>
           <br />
-          <div className={classes.column2}>
-            <Typography className={classes.noteLabel}>Profit:</Typography>
-            <Typography className={classes.noteInput}>Some profit</Typography>
-          </div>
+          {
+            note.closeposition !== '' ?
+              <div className={classes.column2}>
+                {/* <Typography className={classes.noteLabel}>Result:</Typography> */}
+                <Typography className={parseFloat(note.closeposition) > parseFloat(note.entry) ? classes.noteProfit : classes.noteLoss}>
+                  {
+                    parseFloat(note.closeposition) > parseFloat(note.entry) ? '+' : '-'
+                  }
+                  {
+                    parseFloat(note.closeposition) > parseFloat(note.entry) ? 
+                    (100 - parseFloat(note.entry) * 100 / parseFloat(note.closeposition)).toFixed(2) : 
+                    (100 - parseFloat(note.closeposition) * 100 / parseFloat(note.entry)).toFixed(2)
+                  }%
+                </Typography>
+              </div>
+              : <div />
+          }
+          
       </CardContent>
     </Card>
   );
