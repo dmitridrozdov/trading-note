@@ -1,8 +1,10 @@
 import React from 'react'
-import { Grid, CircularProgress, Divider, Chip } from '@material-ui/core'
+import { Grid, CircularProgress } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 
 import TradingNote from './Card/TradingNote'
+import Divider from '../Divider/Divider'
+
 import useStyles from './styles'
 
 const TradingNotes = ({ setCurrentId }) => {
@@ -27,7 +29,7 @@ const TradingNotes = ({ setCurrentId }) => {
           
         </Grid>
         <br/> <br/>
-        <Divider light/>
+        <Divider />
         <br/> <br/>
           {/* <Chip label="CHIP" />
         </Divider> */}
