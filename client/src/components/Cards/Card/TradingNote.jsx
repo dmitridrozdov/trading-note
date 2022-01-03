@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent, Button, Typography, Divider } from '@material-ui/core/'
+import { Card, CardContent, Button, Typography } from '@material-ui/core/'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
 import moment from 'moment'
@@ -9,8 +9,6 @@ import GridNoteContainer from './GridNoteContainer/GridNoteContainer'
 
 import { deleteTradingNote } from '../../../actions/tradingNotes'
 import useStyles from './styles'
-
-
 
 const TradingNote = ({ note, setCurrentId }) => {
   const dispatch = useDispatch()
@@ -50,7 +48,6 @@ const TradingNote = ({ note, setCurrentId }) => {
           {
             note.closeposition !== '' ?
               <div className={classes.column2}>
-                {/* <Typography className={classes.noteLabel}>Result:</Typography> */}
                 <Typography className={parseFloat(note.closeposition) > parseFloat(note.entry) ? classes.noteProfit : classes.noteLoss}>
                   {
                     parseFloat(note.closeposition) > parseFloat(note.entry) ? '+' : '-'
