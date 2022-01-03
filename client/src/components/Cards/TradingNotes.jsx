@@ -19,32 +19,32 @@ const TradingNotes = ({ setCurrentId }) => {
             .filter(function(note) {
               return note.closeposition === ''
             })
-            .sort(function (a, b) {
-                return b.createdAt.localeCompare(a.createdAt)
-              }).map((note) => (
-            <Grid key={note._id} item xs={12} sm={6} md={6}>
-              <TradingNote note={note} setCurrentId={setCurrentId} />
-            </Grid>
-          ))}
+            // .sort(function (a, b) {
+            //     return b.createdAt.localeCompare(a.createdAt)
+            //   })
+            .map((note) => (
+                <Grid key={note._id} item xs={12} sm={6} md={6}>
+                  <TradingNote note={note} setCurrentId={setCurrentId} />
+                </Grid>
+              ))}
           
         </Grid>
         <br/> <br/>
         <Divider />
         <br/> <br/>
-          {/* <Chip label="CHIP" />
-        </Divider> */}
         <Grid className={classes.container} container alignItems="stretch" spacing={3}>
           {notes
             .filter(function(note) {
               return note.closeposition !== ''
             })
-            .sort(function (a, b) {
-                return b.createdAt.localeCompare(a.createdAt)
-              }).map((note) => (
-            <Grid key={note._id} item xs={12} sm={6} md={6}>
-              <TradingNote note={note} setCurrentId={setCurrentId} />
-            </Grid>
-          ))}
+            // .sort(function (a, b) {
+            //     return b.createdAt.localeCompare(a.createdAt)
+            //   })
+            .map((note) => (
+              <Grid key={note._id} item xs={12} sm={6} md={6}>
+                <TradingNote note={note} setCurrentId={setCurrentId} />
+              </Grid>
+            ))}
           
         </Grid>
       </div>
