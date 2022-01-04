@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState, componentDidMount, componentWillUnmount } from 'react'
 import { Card, CardContent, Button, Typography } from '@material-ui/core/'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
@@ -10,9 +10,14 @@ import GridNoteContainer from './GridNoteContainer/GridNoteContainer'
 import { deleteTradingNote } from '../../../actions/tradingNotes'
 import useStyles from './styles'
 
+const api = {
+  base: "https://api.binance.com/api/v3/ticker/price?symbol=",
+};
+
 const TradingNote = ({ note, setCurrentId }) => {
   const dispatch = useDispatch()
   const classes = useStyles()
+  const [currentPice, setCurrentPrice] = useState(0)
 
   const getClassName = (closeposition, entry) => {
     if (closeposition === '') {
@@ -24,6 +29,35 @@ const TradingNote = ({ note, setCurrentId }) => {
   }
 
   const cardType = getClassName(note.closeposition, note.entry)
+  const requestCoin = note.coin.toUpperCase().replace('/', '').replace(/ /g,'')
+
+  componentDidMount = () => {
+    this.updatePrice();
+    this.interval = setInterval(() => {
+      this.updatePrice();
+    }, 5000);
+  }
+
+  componentWillUnmount = () => {
+    clearInterval(this.interval)
+  }
+ 
+
+  // useEffect(() => {
+  //   fetch(`${api.base}` + requestCoin)
+  //   .then((res) => res.json())
+  //   .then((result) => {
+  //     setCurrentPrice(result.price)
+  //   })
+  // }, []);
+
+  const updatePrice = () => {
+    fetch(`${api.base}` + requestCoin)
+    .then((res) => res.json())
+    .then((result) => {
+      setCurrentPrice(result.price)
+    })
+  }
 
   return (
     <Card className={classes.card} >
@@ -44,6 +78,8 @@ const TradingNote = ({ note, setCurrentId }) => {
           <br />
           <GridNoteContainer className={classes.marginRow} label1='Take profit 1:' value1={note.tp1} 
               label2='Take profit 2:' value2={note.tp2} label3='Close Position:' value3={note.closeposition} stoplossline='false'/>
+          <br />
+          <Typography className={classes.noteInput}>{currentPice}</Typography>
           <br />
           {
             note.closeposition !== '' ?
