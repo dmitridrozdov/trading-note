@@ -1,4 +1,4 @@
-import React, { useEffect, useState, componentDidMount, componentWillUnmount } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, CardContent, Button, Typography } from '@material-ui/core/'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
@@ -31,33 +31,20 @@ const TradingNote = ({ note, setCurrentId }) => {
   const cardType = getClassName(note.closeposition, note.entry)
   const requestCoin = note.coin.toUpperCase().replace('/', '').replace(/ /g,'')
 
-  componentDidMount = () => {
-    this.updatePrice();
-    this.interval = setInterval(() => {
-      this.updatePrice();
-    }, 5000);
-  }
-
-  componentWillUnmount = () => {
-    clearInterval(this.interval)
-  }
- 
-
-  // useEffect(() => {
-  //   fetch(`${api.base}` + requestCoin)
-  //   .then((res) => res.json())
-  //   .then((result) => {
-  //     setCurrentPrice(result.price)
-  //   })
-  // }, []);
-
-  const updatePrice = () => {
+  const fetchCurrentPrice = () => {
     fetch(`${api.base}` + requestCoin)
     .then((res) => res.json())
     .then((result) => {
       setCurrentPrice(result.price)
     })
   }
+
+  useEffect(() => {
+    setInterval(() => {
+      fetchCurrentPrice()
+    }, 5000)
+  }, []);
+
 
   return (
     <Card className={classes.card} >
@@ -79,7 +66,25 @@ const TradingNote = ({ note, setCurrentId }) => {
           <GridNoteContainer className={classes.marginRow} label1='Take profit 1:' value1={note.tp1} 
               label2='Take profit 2:' value2={note.tp2} label3='Close Position:' value3={note.closeposition} stoplossline='false'/>
           <br />
-          <Typography className={classes.noteInput}>{currentPice}</Typography>
+          <div className={classes.gridContainer}>
+            <div className={classes.column1}>
+              <Typography className={classes.noteLabel}>Current price:</Typography>
+              <Typography className={classes.noteInput}>{parseFloat(currentPice).toFixed(4)}</Typography>
+            </div>
+            <div className={classes.column2}>
+                <Typography className={classes.noteLabel}>%</Typography>
+                <Typography className={parseFloat(currentPice) > parseFloat(note.entry) ? classes.currentProfit : classes.currentLoss}>
+                  {
+                    parseFloat(currentPice) > parseFloat(note.entry) ? '+' : '-'
+                  }
+                  {
+                    parseFloat(currentPice) > parseFloat(note.entry) ? 
+                    (100 - parseFloat(note.entry) * 100 / parseFloat(currentPice)).toFixed(2) : 
+                    (100 - parseFloat(currentPice) * 100 / parseFloat(note.entry)).toFixed(2)
+                  }%
+                </Typography>
+            </div>
+          </div>
           <br />
           {
             note.closeposition !== '' ?
