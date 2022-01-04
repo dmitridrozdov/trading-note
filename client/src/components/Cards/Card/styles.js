@@ -87,13 +87,13 @@ export default makeStyles({
 
   noteLoss: {
     fontFamily: 'Varela Round',
-    fontSize: '18px',
+    fontSize: '20px',
     color: '#ed2939',
   },
 
   noteProfit: {
     fontFamily: 'Varela Round',
-    fontSize: '18px',
+    fontSize: '20px',
     color: '#33b864',
   },
 
