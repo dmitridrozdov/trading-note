@@ -72,7 +72,7 @@ const TradingNote = ({ note, setCurrentId }) => {
               <Typography className={classes.noteInput}>{parseFloat(currentPice).toFixed(4)}</Typography>
             </div>
             <div className={classes.column2}>
-                <Typography className={classes.noteLabel}>%</Typography>
+                <Typography className={classes.noteLabel}>% from Entry:</Typography>
                 <Typography className={parseFloat(currentPice) > parseFloat(note.entry) ? classes.currentProfit : classes.currentLoss}>
                   {
                     parseFloat(currentPice) > parseFloat(note.entry) ? '+' : '-'
