@@ -9,7 +9,7 @@ export default makeStyles({
     },
     
     noteInput: {
-        fontFamily: 'Montserrat',
+        fontFamily: 'Varela Round',
         fontSize: '14px',
     },
 
@@ -20,7 +20,7 @@ export default makeStyles({
     },
     
     noteStopInput: {
-        fontFamily: 'Montserrat',
+        fontFamily: 'Varela Round',
         fontSize: '14px',
         color: '#ed2939',
     },
