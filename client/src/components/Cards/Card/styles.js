@@ -73,6 +73,18 @@ export default makeStyles({
       fontSize: '14px',
   },
 
+  currentLoss: {
+    fontFamily: 'Varela Round',
+    fontSize: '14px',
+    color: '#ed2939',
+  },
+
+  currentProfit: {
+    fontFamily: 'Varela Round',
+    fontSize: '14px',
+    color: '#33b864',
+  },
+
   noteLoss: {
     fontFamily: 'Varela Round',
     fontSize: '18px',
@@ -83,6 +95,20 @@ export default makeStyles({
     fontFamily: 'Varela Round',
     fontSize: '18px',
     color: '#33b864',
+  },
+
+  gridContainer: {
+    display: 'grid',
+    gridAutoColumns: '1fr',
+    gridAutoFlow: 'column',
+  },
+
+  column1: {
+      gridColumn: 1,
+  },
+
+  column2: {
+      gridColumn: 2,
   },
 
 });
