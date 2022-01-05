@@ -42,7 +42,7 @@ const TradingNote = ({ note, setCurrentId }) => {
   useEffect(() => {
     setInterval(() => {
       fetchCurrentPrice()
-    }, 5000)
+    }, 10000)
   }, []);
 
 
@@ -69,7 +69,7 @@ const TradingNote = ({ note, setCurrentId }) => {
           <div className={classes.gridContainer}>
             <div className={classes.column1}>
               <Typography className={classes.noteLabel}>Current price:</Typography>
-              <Typography className={classes.noteInput}>{parseFloat(currentPice).toFixed(4)}</Typography>
+              <Typography className={classes.noteCurrentPrice}>{parseFloat(currentPice).toFixed(4)}</Typography>
             </div>
             <div className={classes.column2}>
                 <Typography className={classes.noteLabel}>% from Entry:</Typography>
