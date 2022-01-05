@@ -29,9 +29,9 @@ const TradingNotes = ({ setCurrentId }) => {
               ))}
           
         </Grid>
-        <br/> <br/>
+        <br/> <br/> <br/> <br/> <br/> <br/>
         <Divider />
-        <br/> <br/>
+        <br/> <br/> 
         <Grid className={classes.container} container alignItems="stretch" spacing={3}>
           {notes
             .filter(function(note) {
