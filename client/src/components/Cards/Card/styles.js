@@ -73,6 +73,12 @@ export default makeStyles({
       fontSize: '14px',
   },
 
+  noteCurrentPrice: {
+    fontFamily: 'Varela Round',
+    fontSize: '14px',
+    color: '#4765fc',
+},
+
   currentLoss: {
     fontFamily: 'Varela Round',
     fontSize: '14px',
