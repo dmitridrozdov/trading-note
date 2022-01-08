@@ -12,7 +12,7 @@ import useStyles from './styles'
 
 const api = {
   base: "https://api.binance.com/api/v3/ticker/price?symbol=",
-};
+}
 
 const TradingNote = ({ note, setCurrentId }) => {
   const dispatch = useDispatch()
@@ -43,7 +43,7 @@ const TradingNote = ({ note, setCurrentId }) => {
     setInterval(() => {
       fetchCurrentPrice()
     }, 10000)
-  }, []);
+  }, [])
 
 
   return (
