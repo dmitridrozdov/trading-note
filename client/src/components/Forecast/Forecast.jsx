@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Container, Grow, Grid, TextField } from '@material-ui/core'
+import { Button, Item } from '@material-ui/core'
+
+import useStyles, { NoteTextField }  from './styles'
 
 export const Forecast = () => {
+
+  const classes = useStyles()
+  const [currentSearch, setCurrentSearch] = useState('')
 
   let topDate = new Date(1598400000000); // create Date object
   console.log('date on the top: ' + topDate.toString())
@@ -31,17 +38,32 @@ export const Forecast = () => {
     })
   }
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     fetchData()
-  //   }, 10000)
-  // }, [])
-
-  fetchData()
+  const forecast = () => {
+    fetchData()
+  }
 
   return (
-    <div>
-      dsfsf
-    </div>
+    <Container maxWidth='lg'>
+      <Grow in>
+        <Grid container spacing={40}>
+          <Grid item xs={8}>
+            <NoteTextField 
+                className={classes.textMargin}
+                InputProps={{
+                    className: classes.textStyle
+                }}
+                name='search' label='Search' fullWidth 
+                value={currentSearch} 
+                onChange={(e) => setCurrentSearch(e.target.value)}
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <Button className={classes.btnForecast} size='small' onClick={forecast}>Forecast</Button>
+          </Grid>
+        </Grid>
+      </Grow>
+    </Container>
+
+
   )
 }
