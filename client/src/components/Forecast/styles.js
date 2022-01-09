@@ -9,12 +9,10 @@ export default makeStyles((theme) => ({
 
   textMargin: {
     marginTop: 10,
-    marginRight: 40,
   },
 
   btnForecast: {
     marginTop: 25,
-    marginRight: 40,
     
     fontFamily: 'Montserrat',
     fontSize: '10px',
@@ -26,6 +24,10 @@ export default makeStyles((theme) => ({
       color: 'darkred',
       border: '1px solid darkred',
     },
+  },
+
+  span: {
+    marginRight: 10,
   },
 
 }));
