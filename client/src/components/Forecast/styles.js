@@ -3,8 +3,8 @@ import { TextField } from '@material-ui/core'
 
 export default makeStyles((theme) => ({
   textStyle: {
-    fontFamily: 'Montserrat',
-    fontSize: '12px',
+    fontFamily: 'Varela Round',
+    fontSize: '14px',
   },
 
   textMargin: {
@@ -12,17 +12,18 @@ export default makeStyles((theme) => ({
   },
 
   btnForecast: {
-    marginTop: 25,
-    
-    fontFamily: 'Montserrat',
+    marginTop: 30,
+    maxWidth: '100px', minWidth: '100px',
+    fontFamily: 'Varela Round',
     fontSize: '10px',
-    color: '#ed2939',
-    border: '1px solid #ed2939',
-    borderRadius: '5px',
+    color: 'white',
+    backgroundColor: '#03968f',
+    // border: '1px solid #ed2939',
+    borderRadius: '3px',
     '&:hover': {
-      backgroundColor: 'white',
-      color: 'darkred',
-      border: '1px solid darkred',
+      backgroundColor: '#2fbdb6',
+      color: 'white',
+      // border: '1px solid darkred',
     },
   },
 
@@ -36,15 +37,15 @@ export const NoteTextField = withStyles({
   root: {
     '& label': {
       color: 'lightgrey',
-      fontFamily: 'Montserrat',
+      fontFamily: 'Varela Round',
     },
     '&.Mui-focused': {
       color: 'lightgrey',
-      fontFamily: 'Montserrat',
+      fontFamily: 'Varela Round',
     },
     '& label.Mui-focused': {
       color: 'lightgrey',
-      fontFamily: 'Montserrat',
+      fontFamily: 'Varela Round',
     },
     '& .MuiInput-underline:before': {
       borderBottomColor: '#f0efed', // Semi-transparent underline
