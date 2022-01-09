@@ -46,7 +46,8 @@ export const Forecast = () => {
     <Container maxWidth='lg'>
       <Grow in>
         <Grid container spacing={40}>
-          <Grid item xs={8}>
+          <Grid item xs={8} className={classes.grid}> 
+          <div className={classes.span}>
             <NoteTextField 
                 className={classes.textMargin}
                 InputProps={{
@@ -56,9 +57,12 @@ export const Forecast = () => {
                 value={currentSearch} 
                 onChange={(e) => setCurrentSearch(e.target.value)}
             />
+            </div>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.grid}>
+          <div className={classes.span}>
             <Button className={classes.btnForecast} size='small' onClick={forecast}>Forecast</Button>
+            </div>
           </Grid>
         </Grid>
       </Grow>
