@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Container, Grow, Grid, TextField } from '@material-ui/core'
-import { Button, Item } from '@material-ui/core'
+import { Container, Grow, Grid } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 
 import useStyles, { NoteTextField }  from './styles'
 
