@@ -52,5 +52,3 @@ export const TradingNoteApp = () => {
         </Container>
     )
 }
-
-// export default App
