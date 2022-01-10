@@ -14,7 +14,7 @@ const TradingNotes = ({ setCurrentId }) => {
   return (
     !notes.length ? <CircularProgress /> : (
       <div>
-        <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+        <Grid className={classes.container} container  spacing={3}>
           {notes
             .filter(function(note) {
               return note.closeposition === ''
