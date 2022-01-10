@@ -49,15 +49,13 @@ const TradingNote = ({ note, setCurrentId }) => {
   return (
     <Card className={classes.card} >
       <div className={classes.overlay2}>
-        <Button style={{ color: '#ababab' }} size="small" onClick={() => setCurrentId(note._id)}><Edit fontSize="small" /></Button>
-        <Button style={{ color: '#ababab' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
+        <Button style={{ color: '#858585' }} size="small" onClick={() => setCurrentId(note._id)}><Edit fontSize="small" /></Button>
+        <Button style={{ color: '#858585' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
       </div>
       <div className={classes.cellTitle}>
         <Typography className={cardType} gutterBottom variant="h5" component="h2">{(note.coin).toUpperCase()}</Typography>
         <Typography className={classes.itemTitle} gutterBottom>{note.type}</Typography>
-      </div>
-      <div className={classes.cellTitle}>
-        <Typography className={classes.timeTitle}>{moment(note.createdAt).fromNow()}</Typography>
+        <Typography className={classes.itemTitle}>{moment(note.createdAt).fromNow()}</Typography>
       </div>
       <CardContent>
           <GridNoteContainer label1='Deposit:' value1={note.deposit} label2='Entry:' 
@@ -85,9 +83,10 @@ const TradingNote = ({ note, setCurrentId }) => {
                 </Typography>
             </div>
           </div>
-          <br />
           {
             note.closeposition !== '' ?
+            <>
+              <br />
               <div className={classes.column2}>
                 <Typography className={parseFloat(note.closeposition) > parseFloat(note.entry) ? classes.noteProfit : classes.noteLoss}>
                   {
@@ -100,6 +99,7 @@ const TradingNote = ({ note, setCurrentId }) => {
                   }%
                 </Typography>
               </div>
+            </>
               : <div />
           }
           
