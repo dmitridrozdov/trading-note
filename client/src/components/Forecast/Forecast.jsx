@@ -8,44 +8,41 @@ export const Forecast = () => {
 
   const classes = useStyles()
   const [currentSearch, setCurrentSearch] = useState('')
-
-  let topDate = new Date(1598400000000); // create Date object
-  console.log('date on the top: ' + topDate.toString())
-
-  let bottomDate = new Date(1641513600000); // create Date object
-  console.log('date on the bottom: ' + bottomDate.toString())
-
-
-  let topLimitDate = new Date(1555200000000); // create Date object
-  console.log('date on the bottom with limit 1000: ' + topLimitDate.toString())
-
-  // const myDate = new Date('1/06/2019');
-  // const longDate = myDate.getTime()
-  // console.log('longDate ' + longDate);
-
-  // const newDate = new Date(longDate);
-  // console.log('newDate ' + newDate.toString());
+  const [data1d, setData1d] = useState({})
 
   const api = {
     base: 'https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d',
   }
 
-  const fetchData = () => {
+  const fetch1DData = () => {
     fetch(`${api.base}`)
     .then((res) => res.json())
     .then((result) => {
-      console.info(result)
+      setData1d(result.map((item) => {
+        return {
+          date: new Date(item[0]),
+          open: item[1],
+          high: item[2],
+          low: item[3],
+          close: item[4],
+          volume: item[5],
+        }
+        // return [item[1], item[5]]
+      })
+      , [])
+      
+      console.log(data1d)
     })
   }
 
   const forecast = () => {
-    fetchData()
+    fetch1DData()
   }
 
   return (
     <Container maxWidth='lg'>
       <Grow in>
-        <Grid container spacing={40}>
+        <Grid container spacing={2}>
           <Grid item xs={8} className={classes.grid}> 
           <div className={classes.span}>
             <NoteTextField 
@@ -66,6 +63,25 @@ export const Forecast = () => {
           </Grid>
         </Grid>
       </Grow>
+
+      <Grow in>
+        <Container>
+          {/* {data1d.map((item) => {
+            return (
+              <div key={item.date}>
+                <p>{item.date}</p>
+                <p>{item.open}</p>
+                <p>{item.high}</p>
+                <p>{item.low}</p>
+                <p>{item.close}</p>
+                <p>{item.volume}</p>
+              </div>
+            )
+          })} */}
+          {data1d}
+        </Container>
+      </Grow>
+
     </Container>
 
 
