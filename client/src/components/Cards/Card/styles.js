@@ -25,9 +25,10 @@ export default makeStyles({
 
   itemTitle: { 
     display: 'inline-block',
+    padding: '5px 5px',
     fontFamily: 'Montserrat',
-    fontSize: '12px',
-    color: '#ababab',
+    fontSize: '10px',
+    color: '#858585',
    },
 
   timeTitle: {
@@ -35,13 +36,13 @@ export default makeStyles({
     display: 'inline-block',
     fontFamily: 'Montserrat',
     fontSize: '12px',
-    color: '#ababab',
+    color: '#858585',
    },
 
   titleActive: {
     padding: '10px 20px',
     fontFamily: 'Roboto Slab',
-    fontSize: '18px',
+    fontSize: '16px',
     display: 'inline-block',
     color: 'black',
   },
@@ -49,7 +50,7 @@ export default makeStyles({
   titleProfit: {
     padding: '10px 20px',
     fontFamily: 'Roboto Slab',
-    fontSize: '18px',
+    fontSize: '16px',
     display: 'inline-block',
     color: '#33b864',
   },
@@ -57,15 +58,15 @@ export default makeStyles({
   titleLoss: {
     padding: '10px 20px',
     fontFamily: 'Roboto Slab',
-    fontSize: '18px',
+    fontSize: '16px',
     display: 'inline-block',
     color: '#ed2939',
   },
 
   noteLabel: {
     fontFamily: 'Montserrat',
-    fontSize: '12px',
-    color: '#ababab',
+    fontSize: '10px',
+    color: '#858585',
   },
 
   noteInput: {
