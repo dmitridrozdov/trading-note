@@ -8,7 +8,7 @@ export const Forecast = () => {
 
   const classes = useStyles()
   const [currentSearch, setCurrentSearch] = useState('')
-  const [data1d, setData1d] = useState({})
+  const [data1d, setData1d] = useState([])
 
   const api = {
     base: 'https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d',
@@ -19,19 +19,17 @@ export const Forecast = () => {
     .then((res) => res.json())
     .then((result) => {
       setData1d(result.map((item) => {
-        return {
-          date: new Date(item[0]),
-          open: item[1],
-          high: item[2],
-          low: item[3],
-          close: item[4],
-          volume: item[5],
-        }
-        // return [item[1], item[5]]
+        // return {
+        //   date: new Date(item[0]),
+        //   open: item[1],
+        //   high: item[2],
+        //   low: item[3],
+        //   close: item[4],
+        //   volume: item[5],
+        // }
+        return {open: item[1], close: item[4], volume: item[5]}
       })
       , [])
-      
-      console.log(data1d)
     })
   }
 
@@ -78,7 +76,7 @@ export const Forecast = () => {
               </div>
             )
           })} */}
-          {data1d}
+          {data1d.map((item) => <div>open: {item.open} close: {item.close} volume: {item.volume}</div> )}
         </Container>
       </Grow>
 
