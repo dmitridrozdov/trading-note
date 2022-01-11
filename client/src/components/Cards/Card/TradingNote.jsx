@@ -60,10 +60,8 @@ const TradingNote = ({ note, setCurrentId }) => {
       <CardContent>
           <GridNoteContainer label1='Deposit:' value1={note.deposit} label2='Entry:' 
               value2={note.entry} label3='Stoploss:' value3={note.stoploss} stoplossline='true'/>
-          <br />
           <GridNoteContainer className={classes.marginRow} label1='Take profit 1:' value1={note.tp1} 
               label2='Take profit 2:' value2={note.tp2} label3='Close Position:' value3={note.closeposition} stoplossline='false'/>
-          <br />
           <div className={classes.gridContainer}>
             <div className={classes.column1}>
               <Typography className={classes.noteLabel}>Current price:</Typography>
