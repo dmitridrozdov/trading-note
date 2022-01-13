@@ -64,7 +64,7 @@ const TradingNote = ({ note, setCurrentId }) => {
           <div className={classes.gridContainer}>
             <div className={classes.column1}>
                 <Typography className={classes.noteLabel}>tp1:</Typography>
-                <Typography className={classes.noteInput}>{note.tp1}</Typography>
+                <Typography className={classes.noteInput}>{note.tp}</Typography>
             </div>
             <div className={classes.column2}>
                 <Typography className={classes.noteLabel}>tp2:</Typography>
