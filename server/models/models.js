@@ -6,8 +6,7 @@ const tradingNoteSchema = mongoose.Schema({
     deposit: String,
     entry: String,
     stoploss: String,
-    tp1: String,
-    tp2: String,
+    tp: String,
     closeposition: String,
     createdAt: {
         type: Date,
