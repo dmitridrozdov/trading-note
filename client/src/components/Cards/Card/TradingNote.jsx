@@ -60,8 +60,34 @@ const TradingNote = ({ note, setCurrentId }) => {
       <CardContent>
           <GridNoteContainer label1='Deposit:' value1={note.deposit} label2='Entry:' 
               value2={note.entry} label3='Stoploss:' value3={note.stoploss} stoplossline='true'/>
-          <GridNoteContainer className={classes.marginRow} label1='Take profit 1:' value1={note.tp1} 
-              label2='Take profit 2:' value2={note.tp2} label3='Close Position:' value3={note.closeposition} stoplossline='false'/>
+
+          <div className={classes.gridContainer}>
+            <div className={classes.column1}>
+                <Typography className={classes.noteLabel}>tp1:</Typography>
+                <Typography className={classes.noteInput}>{note.tp1}</Typography>
+            </div>
+            <div className={classes.column2}>
+                <Typography className={classes.noteLabel}>tp2:</Typography>
+                <Typography className={classes.noteInput}>{note.tp2}</Typography>
+            </div>
+            <div className={classes.column3}>
+                <Typography className={classes.noteLabel}>tp3:</Typography>
+                <Typography className={classes.noteInput}>{note.tp2}</Typography>
+            </div>
+            <div className={classes.column4}>
+                <Typography className={classes.noteLabel}>tp4:</Typography>
+                <Typography className={classes.noteInput}>{note.tp2}</Typography>
+            </div>
+            <div className={classes.column5}>
+                <Typography className={classes.noteLabel}>tp5:</Typography>
+                <Typography className={classes.noteInput}>{note.tp2}</Typography>
+            </div>
+            <div className={classes.column6}>
+                <Typography className={classes.noteLabel}>Close:</Typography>
+                <Typography className={classes.noteInput}>{note.closeposition}</Typography>
+            </div>
+        </div>
+
           <div className={classes.gridContainer}>
             <div className={classes.column1}>
               <Typography className={classes.noteLabel}>Current price:</Typography>
