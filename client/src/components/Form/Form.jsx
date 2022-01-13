@@ -9,7 +9,7 @@ import { createTradingNote, updateTradingNote } from '../../actions/tradingNotes
 const Form = ({ currentId, setCurrentId }) => {
     const classes = useStyles()
     const [noteData, setnoteData] = useState({
-        coin: '', type: '', deposit: '', entry: '', stoploss: '', tp1: '', tp2: '', closeposition: ''
+        coin: '', type: '', deposit: '', entry: '', stoploss: '', tp: '', closeposition: ''
     })
     const coin  = useSelector((state) => currentId ? state.notes.find((p) => p._id === currentId) : null)
     const dispatch = useDispatch()
@@ -31,7 +31,7 @@ const Form = ({ currentId, setCurrentId }) => {
     const clear = () => {
         setCurrentId(null)
         setnoteData({coin: '', type: '', deposit: '', entry: '', stoploss: '', 
-                    tp1: '', tp2: '', closeposition: ''})
+                    tp: '', closeposition: ''})
     }
     
     return(
@@ -89,17 +89,8 @@ const Form = ({ currentId, setCurrentId }) => {
                         className: classes.textStyle
                     }}
                     InputLabelProps={{style: {fontSize: '12px'}}}
-                    name='tp1' label='Take Profit 1' fullWidth value={noteData.tp1} 
-                    onChange={(e) => setnoteData({ ...noteData, tp1: e.target.value })}/>
-                
-                <NoteTextField 
-                    className={classes.textMargin}
-                    InputProps={{
-                        className: classes.textStyle
-                    }}
-                    InputLabelProps={{style: {fontSize: '12px'}}}
-                    name='tp2' label='Take Profit 2' fullWidth value={noteData.tp2} 
-                    onChange={(e) => setnoteData({ ...noteData, tp2: e.target.value })}/>
+                    name='tp' label='Take Profit' fullWidth value={noteData.tp} 
+                    onChange={(e) => setnoteData({ ...noteData, tp: e.target.value })}/>
                 
                 <NoteTextField 
                     className={classes.textMargin}
