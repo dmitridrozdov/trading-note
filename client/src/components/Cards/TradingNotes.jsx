@@ -21,7 +21,7 @@ const TradingNotes = ({ setCurrentId }) => {
               return note.closeposition === ''
             })
             .filter(function(note) {
-              return note.tp1 !== 'LONG TERM'
+              return note.tp !== 'LT'
             })
             // .sort(function (a, b) {
             //     return b.createdAt.localeCompare(a.createdAt)
@@ -42,7 +42,7 @@ const TradingNotes = ({ setCurrentId }) => {
               return note.closeposition === ''
             })
             .filter(function(note) {
-              return note.tp1 === 'LONG TERM'
+              return note.tp === 'LT'
             })
             // .sort(function (a, b) {
             //     return b.createdAt.localeCompare(a.createdAt)
