@@ -118,4 +118,20 @@ export default makeStyles({
       gridColumn: 2,
   },
 
+  column3: {
+    gridColumn: 3,
+},
+
+  column4: {
+    gridColumn: 4,
+  },
+
+  column5: {
+    gridColumn: 5,
+  },
+
+  column6: {
+    gridColumn: 6,
+  },
+
 });
