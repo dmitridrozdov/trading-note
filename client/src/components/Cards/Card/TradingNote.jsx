@@ -30,20 +30,17 @@ const TradingNote = ({ note, setCurrentId }) => {
 
   const cardType = getClassName(note.closeposition, note.entry)
   const requestCoin = note.coin.toUpperCase().replace('/', '').replace(/ /g,'')
-
-  const fetchCurrentPrice = () => {
-    fetch(`${api.base}` + requestCoin)
-    .then((res) => res.json())
-    .then((result) => {
-      setCurrentPrice(result.price)
-    })
-  }
+  const takeProfitArray = note.tp.split(' ')
 
   useEffect(() => {
     setInterval(() => {
-      fetchCurrentPrice()
+      fetch(`${api.base}` + requestCoin)
+      .then((res) => res.json())
+      .then((result) => {
+        setCurrentPrice(result.price)
+      })
     }, 10000)
-  }, [])
+  }, [requestCoin])
 
 
   return (
@@ -64,23 +61,25 @@ const TradingNote = ({ note, setCurrentId }) => {
           <div className={classes.gridContainer}>
             <div className={classes.column1}>
                 <Typography className={classes.noteLabel}>tp1:</Typography>
-                <Typography className={classes.noteInput}>{note.tp}</Typography>
+                <Typography className={parseFloat(takeProfitArray[0]) < parseFloat(currentPice) ? classes.currentProfit : classes.noteInput}>
+                  {takeProfitArray[0]}
+                </Typography>
             </div>
             <div className={classes.column2}>
                 <Typography className={classes.noteLabel}>tp2:</Typography>
-                <Typography className={classes.noteInput}>{note.tp2}</Typography>
+                <Typography className={classes.noteInput}>{takeProfitArray[1]}</Typography>
             </div>
             <div className={classes.column3}>
                 <Typography className={classes.noteLabel}>tp3:</Typography>
-                <Typography className={classes.noteInput}>{note.tp2}</Typography>
+                <Typography className={classes.noteInput}>{takeProfitArray[2]}</Typography>
             </div>
             <div className={classes.column4}>
                 <Typography className={classes.noteLabel}>tp4:</Typography>
-                <Typography className={classes.noteInput}>{note.tp2}</Typography>
+                <Typography className={classes.noteInput}>{takeProfitArray[3]}</Typography>
             </div>
             <div className={classes.column5}>
                 <Typography className={classes.noteLabel}>tp5:</Typography>
-                <Typography className={classes.noteInput}>{note.tp2}</Typography>
+                <Typography className={classes.noteInput}>{takeProfitArray[4]}</Typography>
             </div>
             <div className={classes.column6}>
                 <Typography className={classes.noteLabel}>Close:</Typography>
