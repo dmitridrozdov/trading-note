@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { TradingNoteApp } from './components/TradingNoteApp/TradingNoteApp'
 import { Forecast } from './components/Forecast/Forecast'
-import { HistoricalMinimum } from './components/HistoricalMinimum/HistoricalMinimum'
+import { HistoricalMinMax } from './components/HistoricalMinimum/HistoricalMinMax'
 
 const App = () => {
     return (
@@ -10,7 +10,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<TradingNoteApp/>} />
           <Route path='/forecast' element={<Forecast />} />
-          <Route path='/minimum' element={<HistoricalMinimum />} />
+          <Route path='/minmax' element={<HistoricalMinMax />} />
         </Routes>
       </BrowserRouter>
     )
