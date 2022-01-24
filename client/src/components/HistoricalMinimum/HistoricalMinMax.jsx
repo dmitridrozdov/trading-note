@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FlapperSpinner } from 'react-spinners-kit' //https://bestofreactjs.com/repo/dmitrymorozoff-react-spinners-kit--react-loader-spinners-progress-bars
 import axios from 'axios'
+import useStyles from './styles'
 
 const api = {
     exchange: 'https://api.binance.com/api/v1/exchangeInfo',
@@ -8,20 +9,18 @@ const api = {
 }
 
 export const HistoricalMinMax = () => {
-    // const [coins, setCoins] = useState([])
     const [coinsData, setCoinsData] = useState([])
+    const classes = useStyles()
 
     const fetchHistoricalMinimumData = () => {
       axios.get(`${api.exchange}`)
       .then((result) => {
         const filteredCoins = result.data.symbols.filter((coin) => coin.symbol.slice(-4) === 'USDT').map((coin) => coin.symbol)
-        // setCoins(filteredCoins)
-        console.log(filteredCoins.length)
-        // const array = ['BTCUSDT', 'ETHUSDT']
+        // const array = ['BTCUSDT']
         const coinsDataPromises = filteredCoins.map((coin) => fetchCoinData(coin))
         Promise.all(coinsDataPromises).then(results => {
           const data = results.map(result => result[0])
-          console.log(data)
+          // console.log(data)
           setCoinsData(data)
         })
       })
@@ -34,18 +33,37 @@ export const HistoricalMinMax = () => {
           return item[4]
         })
         const max = Math.max(...closePrice)
-        return [{coin: coin, max: max}]
+        const current = closePrice[closePrice.length - 1]
+        const diffPercentage = ((current - max) / max) * 100
+        console.log('diff ' + diffPercentage)
+        return [{coin: coin, max: max, current: current, diffPercentage: diffPercentage}]
       })
     }
 
     useEffect( () => { fetchHistoricalMinimumData() }, [])
 
-    // console.log(coinsData)
-
     return (
       !coinsData.length ? <FlapperSpinner /> : (
         <div>
-          {coinsData.map((coin) => <div>{coin.coin}:{coin.max}</div>)}
+          {/* {coinsData.map((coin) => <div>{coin.coin}   max price: {coin.max}  current price: {coin.current}   diff: {coin.diffPercentage}</div>)} */}
+          <table className={classes.styledTable}>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dom</td>
+                    <td>6000</td>
+                </tr>
+                <tr>
+                    <td>Melissa</td>
+                    <td>5150</td>
+                </tr>
+            </tbody>
+        </table>
         </div>
     ))
 }
