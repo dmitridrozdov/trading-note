@@ -15,9 +15,19 @@ const api = {
 }
 
 const TradingNote = ({ note, setCurrentId }) => {
+
+  // state: {
+  //   shadow: 1
+  // }
+
+  // onMouseOver = () => this.setState({ shadow: 3 });
+
+  // onMouseOut = () => this.setState({ shadow: 1 });
+
   const dispatch = useDispatch()
   const classes = useStyles()
   const [currentPice, setCurrentPrice] = useState(0)
+  const [shadow, setShadow] = useState({ shadow: 1 })
 
   const getClassName = (closeposition, entry) => {
     if (closeposition === '') {
@@ -44,7 +54,15 @@ const TradingNote = ({ note, setCurrentId }) => {
 
 
   return (
-    <Card variant='outlined' className={classes.card} >
+    <Card 
+      variant='outlined' 
+      className={classes.card}
+      sx={{
+        ':hover': {
+          boxShadow: 20, // theme.shadows[20]
+        },
+      }}
+    >
       <div className={classes.overlay2}>
         <Button style={{ color: '#858585' }} size="small" onClick={() => setCurrentId(note._id)}><Edit fontSize="small" /></Button>
         <Button style={{ color: '#858585' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
