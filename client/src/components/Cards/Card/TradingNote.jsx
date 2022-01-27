@@ -49,7 +49,7 @@ const TradingNote = ({ note, setCurrentId }) => {
       .then((result) => {
         setCurrentPrice(result.price)
       })
-    }, 10000)
+    }, 30000)
   }, [requestCoin])
 
 
