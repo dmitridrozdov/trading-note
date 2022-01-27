@@ -89,6 +89,7 @@ export default makeStyles({
     fontFamily: 'Varela Round',
     fontSize: '14px',
     color: '#4da0b3',
+    fontWeight: 'bold',
   },
 
   noteLoss: {
