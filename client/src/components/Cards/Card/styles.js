@@ -6,12 +6,11 @@ export default makeStyles({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    borderRadius: '5px',
+    borderRadius: '1px',
     height: '100%',
     position: 'relative',
     borderShadow: 'none',
-    border: 'none',
-    borderColor: 'red',
+    borderColor: 'lightgray',
   },
 
   overlay2: {
