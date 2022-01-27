@@ -6,11 +6,11 @@ export default makeStyles({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    borderRadius: '1px',
+    borderRadius: '5px',
     height: '100%',
     position: 'relative',
     borderShadow: 'none',
-    borderColor: 'lightgray',
+    // borderColor: 'lightgray',
   },
 
   overlay2: {
@@ -51,7 +51,7 @@ export default makeStyles({
     fontFamily: 'Roboto Slab',
     fontSize: '16px',
     display: 'inline-block',
-    color: '#33b864',
+    color: '#4da0b3', 
   },
 
   titleLoss: {
@@ -88,7 +88,7 @@ export default makeStyles({
   currentProfit: {
     fontFamily: 'Varela Round',
     fontSize: '14px',
-    color: '#33b864',
+    color: '#4da0b3',
   },
 
   noteLoss: {
@@ -100,7 +100,7 @@ export default makeStyles({
   noteProfit: {
     fontFamily: 'Varela Round',
     fontSize: '20px',
-    color: '#33b864',
+    color: '#4da0b3',
   },
 
   gridContainer: {
