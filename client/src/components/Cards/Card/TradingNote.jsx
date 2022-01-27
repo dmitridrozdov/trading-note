@@ -44,7 +44,7 @@ const TradingNote = ({ note, setCurrentId }) => {
 
 
   return (
-    <Card className={classes.card} >
+    <Card variant='outlined' className={classes.card} >
       <div className={classes.overlay2}>
         <Button style={{ color: '#858585' }} size="small" onClick={() => setCurrentId(note._id)}><Edit fontSize="small" /></Button>
         <Button style={{ color: '#858585' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
