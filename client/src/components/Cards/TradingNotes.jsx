@@ -57,20 +57,19 @@ const TradingNotes = ({ setCurrentId }) => {
         <br/> <br/> <br/> <br/> <br/> <br/>
         <Divider name='Completed'/>
         <br/> <br/> 
-        {/* <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+        <Grid className={classes.container} container alignItems="stretch" spacing={3}>
           {notes
             .filter(function(note) {
               return note.closeposition !== ''
             })
-            // .sort(function (a, b) {
-            //     return b.createdAt.localeCompare(a.createdAt)
-            //   })
+            .reverse()
+            .slice(0, 4)
             .map((note) => (
               <Grid key={note._id} item xs={12} sm={6} md={6}>
                 <TradingNote note={note} setCurrentId={setCurrentId} />
               </Grid>
             ))}  
-        </Grid> */}
+        </Grid>
       </div>
     )
   )
