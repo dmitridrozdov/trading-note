@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LongTermCard = () => {
+const LongTermCard = ({ note, setCurrentId }) => {
   return (
     <div>LongTermCard</div>
   )
