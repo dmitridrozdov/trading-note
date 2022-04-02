@@ -16,14 +16,6 @@ const api = {
 
 const TradingNote = ({ note, setCurrentId }) => {
 
-  // state: {
-  //   shadow: 1
-  // }
-
-  // onMouseOver = () => this.setState({ shadow: 3 });
-
-  // onMouseOut = () => this.setState({ shadow: 1 });
-
   const dispatch = useDispatch()
   const classes = useStyles()
   const [currentPice, setCurrentPrice] = useState(0)
