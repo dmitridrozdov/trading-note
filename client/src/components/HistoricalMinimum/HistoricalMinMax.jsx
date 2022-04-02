@@ -12,22 +12,22 @@ export const HistoricalMinMax = () => {
     const [coinsData, setCoinsData] = useState([])
     const classes = useStyles()
 
-    const fetchHistoricalMinimumData = () => {
-      axios.get(`${api.exchange}`)
-      .then((result) => {
-        const filteredCoins = result.data.symbols.filter((coin) => coin.symbol.slice(-4) === 'USDT').map((coin) => coin.symbol)
-        // const array = ['BTCUSDT']
-        const coinsDataPromises = filteredCoins.map((coin) => fetchCoinData(coin))
-        Promise.all(coinsDataPromises).then(results => {
-          const data = 
-            results
-            .map(result => result[0])
-            .sort((a, b) => parseFloat(a.ndays) - parseFloat(b.ndays))
-          // console.log(data)
-          setCoinsData(data)
-        })
-      })
-    }
+    // const fetchHistoricalMinimumData = () => {
+    //   axios.get(`${api.exchange}`)
+    //   .then((result) => {
+    //     const filteredCoins = result.data.symbols.filter((coin) => coin.symbol.slice(-4) === 'USDT').map((coin) => coin.symbol)
+    //     // const array = ['BTCUSDT']
+    //     const coinsDataPromises = filteredCoins.map((coin) => fetchCoinData(coin))
+    //     Promise.all(coinsDataPromises).then(results => {
+    //       const data = 
+    //         results
+    //         .map(result => result[0])
+    //         .sort((a, b) => parseFloat(a.ndays) - parseFloat(b.ndays))
+    //       // console.log(data)
+    //       setCoinsData(data)
+    //     })
+    //   })
+    // }
 
     async function fetchCoinData(coin) {
       return await axios.get(`${api.klines}` + coin + '&interval=1d&limit=1000')
@@ -44,7 +44,24 @@ export const HistoricalMinMax = () => {
       })
     }
 
-    useEffect( () => { fetchHistoricalMinimumData() }, [])
+    // useEffect( () => { fetchHistoricalMinimumData() }, [])
+
+    useEffect(() => { function fetchHistoricalMinimumData() { 
+      axios.get(`${api.exchange}`)
+      .then((result) => {
+        const filteredCoins = result.data.symbols.filter((coin) => coin.symbol.slice(-4) === 'USDT').map((coin) => coin.symbol)
+        // const array = ['BTCUSDT']
+        const coinsDataPromises = filteredCoins.map((coin) => fetchCoinData(coin))
+        Promise.all(coinsDataPromises).then(results => {
+          const data = 
+            results
+            .map(result => result[0])
+            .sort((a, b) => parseFloat(a.ndays) - parseFloat(b.ndays))
+          // console.log(data)
+          setCoinsData(data)
+        })
+      })
+     } fetchHistoricalMinimumData() }, []) 
 
     return (
       !coinsData.length ? <FlapperSpinner /> : (
