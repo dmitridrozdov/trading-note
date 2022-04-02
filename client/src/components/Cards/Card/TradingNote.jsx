@@ -19,7 +19,6 @@ const TradingNote = ({ note, setCurrentId }) => {
   const dispatch = useDispatch()
   const classes = useStyles()
   const [currentPice, setCurrentPrice] = useState(0)
-  const [shadow, setShadow] = useState({ shadow: 1 })
 
   const getClassName = (closeposition, entry) => {
     if (closeposition === '') {
