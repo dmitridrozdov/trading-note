@@ -1,6 +1,7 @@
 import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes'
 
-export default (notes = [], action) => {
+// export default (notes = [], action) => {
+const tradingNotes = (notes = [], action) => {
     switch (action.type) {
         case DELETE:
             return notes.filter((note) => note._id !== action.payload)
@@ -14,3 +15,5 @@ export default (notes = [], action) => {
             return notes
     }
 }
+
+export default tradingNotes
