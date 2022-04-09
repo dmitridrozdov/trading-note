@@ -10,7 +10,13 @@ import useStyles from './styles'
 
 const LongTermCard = ({ note, setCurrentId }) => {
   return (
-    <div>LongTermCard</div>
+    <ListItem divider={true} className={done ? classes.listItemDone : classes.listItem}>
+        <ListItemText
+            disableTypography
+            primary={<Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}>list item</Typography>}
+            // onClick={() => dispatch(deleteProduct(id))}/>
+            onClick={() => onClickItem(id)}/>
+    </ListItem>
   )
 }
 
