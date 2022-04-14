@@ -13,11 +13,28 @@ const LongTermCard = ({ note, setCurrentId }) => {
     const classes = useStyles()
     const [currentPice, setCurrentPrice] = useState(0)
 
+    const getClassName = (closeposition, entry) => {
+        if (closeposition === '') {
+          return classes.titleActive
+        }
+        const classResult = parseFloat(closeposition)
+         > parseFloat(entry) ? classes.titleProfit : classes.titleLoss
+        return classResult
+    }
+    
+    const cardType = getClassName(note.closeposition, note.entry)
+
     return (
         <ListItem divider={true} >
             <ListItemText
                 disableTypography
-                primary={<Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}>list item</Typography>}
+                primary={
+                    <>
+                        <Typography className={cardType} gutterBottom variant="h5" component="h2">{(note.coin).toUpperCase()}</Typography>
+                        <Typography className={classes.itemTitle} gutterBottom>{note.type}</Typography>
+                    </>
+                    
+                }
             />
         </ListItem>
     )
