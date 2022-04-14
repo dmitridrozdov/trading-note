@@ -9,15 +9,19 @@ import { deleteTradingNote } from '../../../actions/tradingNotes'
 import useStyles from './styles'
 
 const LongTermCard = ({ note, setCurrentId }) => {
-  return (
-    <ListItem divider={true} className={done ? classes.listItemDone : classes.listItem}>
-        <ListItemText
-            disableTypography
-            primary={<Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}>list item</Typography>}
-            // onClick={() => dispatch(deleteProduct(id))}/>
-            onClick={() => onClickItem(id)}/>
-    </ListItem>
-  )
+    const dispatch = useDispatch()
+    const classes = useStyles()
+    const [currentPice, setCurrentPrice] = useState(0)
+
+    return (
+        <ListItem divider={true} className={done ? classes.listItemDone : classes.listItem}>
+            <ListItemText
+                disableTypography
+                primary={<Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}>list item</Typography>}
+                // onClick={() => dispatch(deleteProduct(id))}/>
+                onClick={() => onClickItem(id)}/>
+        </ListItem>
+    )
 }
 
 export default LongTermCard
