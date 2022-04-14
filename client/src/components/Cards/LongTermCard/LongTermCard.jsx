@@ -32,6 +32,8 @@ const LongTermCard = ({ note, setCurrentId }) => {
                     <>
                         <Typography className={cardType} gutterBottom variant="h5" component="h2">{(note.coin).toUpperCase()}</Typography>
                         <Typography className={classes.itemTitle} gutterBottom>{note.type}</Typography>
+                        <Typography className={classes.itemTitle} gutterBottom>Deposit: {note.deposit}</Typography>
+                        <Typography className={classes.itemTitle} gutterBottom>Entry: {note.entry}</Typography>
                     </>
                     
                 }
