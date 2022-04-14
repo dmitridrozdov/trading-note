@@ -39,25 +39,25 @@ export default makeStyles({
    },
 
   titleActive: {
-    padding: '10px 20px',
+    padding: '5px 5px',
     fontFamily: 'Roboto Slab',
-    fontSize: '16px',
+    fontSize: '12px',
     display: 'inline-block',
     color: 'black',
   },
 
   titleProfit: {
-    padding: '10px 20px',
+    padding: '5px 5px',
     fontFamily: 'Roboto Slab',
-    fontSize: '16px',
+    fontSize: '12px',
     display: 'inline-block',
     color: '#4da0b3', 
   },
 
   titleLoss: {
-    padding: '10px 20px',
+    padding: '5px 5px',
     fontFamily: 'Roboto Slab',
-    fontSize: '16px',
+    fontSize: '12px',
     display: 'inline-block',
     color: '#ed2939',
   },
