@@ -37,7 +37,7 @@ const TradingNotes = ({ setCurrentId }) => {
         <br/> <br/> <br/> <br/> <br/> <br/>
         <Divider name='Long Term'/>
         <br/> <br/>
-        <Grid className={classes.container} container spacing={3}>
+        <Grid className={classes.container} container>
           {notes
             .filter(function(note) {
               return note.closeposition === ''
@@ -49,7 +49,7 @@ const TradingNotes = ({ setCurrentId }) => {
             //     return b.createdAt.localeCompare(a.createdAt)
             //   })
             .map((note) => (
-                <Grid key={note._id} item xs={12} sm={6} md={6}>
+                <Grid key={note._id} item xs={12} sm={12} md={12}>
                   {/* <TradingNote note={note} setCurrentId={setCurrentId} /> */}
                   <LongTermCard note={note} setCurrentId={setCurrentId} />
                 </Grid>
