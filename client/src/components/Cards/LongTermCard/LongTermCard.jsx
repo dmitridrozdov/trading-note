@@ -8,6 +8,10 @@ import { useDispatch } from 'react-redux'
 import { deleteTradingNote } from '../../../actions/tradingNotes'
 import useStyles from './styles'
 
+const api = {
+    base: "https://api.binance.com/api/v3/ticker/price?symbol=",
+  }
+
 const LongTermCard = ({ note, setCurrentId }) => {
     const dispatch = useDispatch()
     const classes = useStyles()
@@ -24,6 +28,18 @@ const LongTermCard = ({ note, setCurrentId }) => {
     
     const cardType = getClassName(note.closeposition, note.entry)
 
+    const requestCoin = note.coin.toUpperCase().replace('/', '').replace(/ /g,'')
+
+    useEffect(() => {
+        setInterval(() => {
+          fetch(`${api.base}` + requestCoin)
+          .then((res) => res.json())
+          .then((result) => {
+            setCurrentPrice(result.price)
+          })
+        }, 30000)
+      }, [requestCoin])
+
     return (
         <ListItem divider={true} >
             <ListItemText
@@ -34,6 +50,17 @@ const LongTermCard = ({ note, setCurrentId }) => {
                         <Typography className={classes.itemTitle} gutterBottom>{note.type}</Typography>
                         <Typography className={classes.itemTitle} gutterBottom>Deposit: {note.deposit}</Typography>
                         <Typography className={classes.itemTitle} gutterBottom>Entry: {note.entry}</Typography>
+                        <Typography className={classes.itemTitle}>Current price: {parseFloat(currentPice).toFixed(4)}</Typography>
+                        <Typography className={parseFloat(currentPice) > parseFloat(note.entry) ? classes.currentProfit : classes.currentLoss}>
+                            {
+                                parseFloat(currentPice) > parseFloat(note.entry) ? '+' : '-'
+                            }
+                            {
+                                parseFloat(currentPice) > parseFloat(note.entry) ? 
+                                (100 - parseFloat(note.entry) * 100 / parseFloat(currentPice)).toFixed(2) : 
+                                (100 - parseFloat(currentPice) * 100 / parseFloat(note.entry)).toFixed(2)
+                            }%
+                        </Typography>
                     </>
                     
                 }
