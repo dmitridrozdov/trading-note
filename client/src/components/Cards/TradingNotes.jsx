@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 
 import TradingNote from './Card/TradingNote'
+import LongTermCard from './LongTermCard/LongTermCard'
 import Divider from '../Divider/Divider'
 import { FlapperSpinner } from 'react-spinners-kit' //https://bestofreactjs.com/repo/dmitrymorozoff-react-spinners-kit--react-loader-spinners-progress-bars
 
@@ -49,7 +50,8 @@ const TradingNotes = ({ setCurrentId }) => {
             //   })
             .map((note) => (
                 <Grid key={note._id} item xs={12} sm={6} md={6}>
-                  <TradingNote note={note} setCurrentId={setCurrentId} />
+                  {/* <TradingNote note={note} setCurrentId={setCurrentId} /> */}
+                  <LongTermCard note={note} setCurrentId={setCurrentId} />
                 </Grid>
               ))
           }
