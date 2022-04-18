@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ListItem, ListItemText, Typography } from '@material-ui/core'
+import { ListItem, ListItemText, Typography, Button } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
 import moment from 'moment'
@@ -46,8 +46,13 @@ const LongTermCard = ({ note, setCurrentId }) => {
                 disableTypography
                 primary={
                     <>
+                        <div className={classes.overlay2}>
+                            <Button style={{ color: '#858585' }} size="small" onClick={() => setCurrentId(note._id)}><Edit fontSize="small" /></Button>
+                            <Button style={{ color: '#858585' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
+                        </div>
                         <Typography className={cardType} gutterBottom variant="h5" component="h2">{(note.coin).toUpperCase()}</Typography>
                         <Typography className={classes.itemTitle} gutterBottom>{note.type}</Typography>
+                        <Typography className={classes.itemTitle}>{moment(note.createdAt).fromNow()}</Typography>
                         <Typography className={classes.itemTitle} gutterBottom>Deposit: {note.deposit}</Typography>
                         <Typography className={classes.itemTitle} gutterBottom>Entry: {note.entry}</Typography>
                         <Typography className={classes.itemTitle}>Current price: {parseFloat(currentPice).toFixed(4)}</Typography>
