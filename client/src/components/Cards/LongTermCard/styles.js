@@ -38,6 +38,22 @@ export default makeStyles({
     color: '#858585',
    },
 
+   itemEntry: { 
+    display: 'inline-block',
+    padding: '5px 5px',
+    fontFamily: 'Varela Round',
+    fontSize: '12px',
+    color: 'black',
+   },
+
+   itemCurrentPrice: {
+    display: 'inline-block',
+    padding: '5px 5px',
+    fontFamily: 'Varela Round',
+    fontSize: '12px',
+    color: '#686dcc',
+   },
+
   titleActive: {
     padding: '5px 5px',
     fontFamily: 'Roboto Slab',
@@ -83,6 +99,7 @@ export default makeStyles({
     fontFamily: 'Varela Round',
     fontSize: '14px',
     color: '#ed2939',
+    display: 'inline-block',
   },
 
   currentProfit: {
@@ -90,6 +107,7 @@ export default makeStyles({
     fontSize: '14px',
     color: '#4da0b3',
     fontWeight: 'bold',
+    display: 'inline-block',
   },
 
   noteLoss: {
