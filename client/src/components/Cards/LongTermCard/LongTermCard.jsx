@@ -47,6 +47,16 @@ const LongTermCard = ({ note, setCurrentId }) => {
                 primary={
                     <>
                         <div className={classes.overlay2}>
+                            <Typography className={parseFloat(currentPice) > parseFloat(note.entry) ? classes.currentProfit : classes.currentLoss}>
+                                {
+                                    parseFloat(currentPice) > parseFloat(note.entry) ? '+' : '-'
+                                }
+                                {
+                                    parseFloat(currentPice) > parseFloat(note.entry) ? 
+                                    (100 - parseFloat(note.entry) * 100 / parseFloat(currentPice)).toFixed(2) : 
+                                    (100 - parseFloat(currentPice) * 100 / parseFloat(note.entry)).toFixed(2)
+                                }%
+                            </Typography>
                             <Button style={{ color: '#858585' }} size="small" onClick={() => setCurrentId(note._id)}><Edit fontSize="small" /></Button>
                             <Button style={{ color: '#858585' }} size="small" color="primary" onClick={() => dispatch(deleteTradingNote(note._id))}><DeleteIcon fontSize="small" /></Button>
                         </div>
@@ -54,18 +64,11 @@ const LongTermCard = ({ note, setCurrentId }) => {
                         <Typography className={classes.itemTitle} gutterBottom>{note.type}</Typography>
                         <Typography className={classes.itemTitle}>{moment(note.createdAt).fromNow()}</Typography>
                         <Typography className={classes.itemTitle} gutterBottom>Deposit: {note.deposit}</Typography>
-                        <Typography className={classes.itemTitle} gutterBottom>Entry: {note.entry}</Typography>
-                        <Typography className={classes.itemTitle}>Current price: {parseFloat(currentPice).toFixed(4)}</Typography>
-                        <Typography className={parseFloat(currentPice) > parseFloat(note.entry) ? classes.currentProfit : classes.currentLoss}>
-                            {
-                                parseFloat(currentPice) > parseFloat(note.entry) ? '+' : '-'
-                            }
-                            {
-                                parseFloat(currentPice) > parseFloat(note.entry) ? 
-                                (100 - parseFloat(note.entry) * 100 / parseFloat(currentPice)).toFixed(2) : 
-                                (100 - parseFloat(currentPice) * 100 / parseFloat(note.entry)).toFixed(2)
-                            }%
-                        </Typography>
+                        <Typography className={classes.itemTitle} gutterBottom>Entry: </Typography>
+                        <Typography className={classes.itemEntry} gutterBottom>{note.entry}</Typography>
+                        <Typography className={classes.itemTitle}>Current price: </Typography>
+                        <Typography className={classes.itemCurrentPrice}>{parseFloat(currentPice).toFixed(4)}</Typography>
+                        
                     </>
                     
                 }
