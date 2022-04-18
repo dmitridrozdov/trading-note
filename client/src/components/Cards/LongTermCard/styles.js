@@ -97,17 +97,21 @@ export default makeStyles({
 
   currentLoss: {
     fontFamily: 'Varela Round',
-    fontSize: '14px',
-    color: '#ed2939',
+    fontSize: '12px',
+    color: 'white',
     display: 'inline-block',
+    backgroundColor: '#ed2939',
+    padding: '5px 5px',
   },
 
   currentProfit: {
     fontFamily: 'Varela Round',
-    fontSize: '14px',
-    color: '#4da0b3',
+    fontSize: '12px',
+    color: 'white',
     fontWeight: 'bold',
     display: 'inline-block',
+    backgroundColor: '#4da0b3',
+    padding: '5px 5px',
   },
 
   noteLoss: {
