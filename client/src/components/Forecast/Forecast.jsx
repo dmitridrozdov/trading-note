@@ -76,7 +76,7 @@ export const Forecast = () => {
               </div>
             )
           })} */}
-          {data1d.map((item) => <div>open: {item.open} close: {item.close} volume: {item.volume}</div> )}
+          {data1d.map((item) => <div>open: {item.open.replace(/0+$/, "")} close: {item.close.replace(/0+$/, "")} volume: {item.volume.replace(/0+$/, "")}</div> )}
         </Container>
       </Grow>
 
