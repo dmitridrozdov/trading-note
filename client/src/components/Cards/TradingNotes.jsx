@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 
 import TradingNote from './Card/TradingNote'
@@ -12,6 +12,14 @@ import useStyles from './styles'
 const TradingNotes = ({ setCurrentId }) => {
   const notes = useSelector((state) => state.notes)
   const classes = useStyles()
+
+  const totalDeposit = notes.reduce((acc, note) => {
+    if (note.closeposition === '') {
+      // Convert note.deposit to a number before adding
+      return acc + Number(note.deposit);
+    }
+    return acc;
+  }, 0);
 
   return (
     !notes.length ? <FlapperSpinner /> : (
@@ -72,6 +80,15 @@ const TradingNotes = ({ setCurrentId }) => {
               </Grid>
             ))}  
         </Grid>
+        
+        <br/> <br/> <br/> <br/> <br/> <br/>
+        <Divider name='Deposit'/>
+
+        <Grid className={classes.container} container spacing={3}>
+          {/* Display the total sum of deposits */}
+          <Typography variant="h6">Total Deposit: {totalDeposit}</Typography>
+        </Grid>     
+
       </div>
     )
   )
